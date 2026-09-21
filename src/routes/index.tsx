@@ -303,9 +303,8 @@ function WeddingTimeline() {
             className={`timeline-event timeline-event-${event.side}`}
             key={`${event.date}-${event.title}`}
           >
-          <div className="timeline-marker">
+  <div className="timeline-marker">
   <img src={rose} alt="" />
-  <span>{event.date}</span>
 </div>
 
             <div className="timeline-card">
