@@ -87,13 +87,26 @@ function Opening({ onOpen }: { onOpen: () => void }) {
   const beginOpening = () => {
     if (celebrating) return;
     setCelebrating(true);
-    window.setTimeout(onOpen, 520);
-  };
+    window.setTimeout(onOpen, 1400);  };
   return (
     <div className={celebrating ? "opening is-celebrating" : "opening"} aria-label="Wedding invitation cover">
-      <div className="petals" aria-hidden="true">
-        {Array.from({ length: 15 }, (_, index) => <i key={index} style={{ "--i": index } as CSSProperties} />)}
-      </div>
+<div className="petals" aria-hidden="true">
+  {Array.from({ length: 24 }, (_, index) => (
+    <i
+      key={index}
+      style={
+        {
+          "--i": index,
+          "--delay": `${(index * 0.37) % 6}s`,
+          "--duration": `${6 + ((index * 1.13) % 5)}s`,
+          "--left": `${(index * 37) % 108 - 4}%`,
+          "--size": `${10 + ((index * 7) % 9)}px`,
+          "--rotate": `${(index * 47) % 360}deg`,
+        } as CSSProperties
+      }
+    />
+  ))}
+</div>
       <div className="celebration-burst" aria-hidden="true">
         {Array.from({ length: 24 }, (_, index) => <i key={index} style={{ "--i": index } as CSSProperties} />)}
       </div>
@@ -105,8 +118,9 @@ function Opening({ onOpen }: { onOpen: () => void }) {
         <BotanicalRule />
         <p className="opening-date">October 22, 2026</p>
         <p className="script-line">Cordially Invites</p>
-        <PhotoFrame compact />
-        <Button className="open-button" onClick={beginOpening} disabled={celebrating}>Open</Button>
+<Button className="open-button" onClick={beginOpening} disabled={celebrating}>
+  Open
+</Button>
       </div>
     </div>
   );

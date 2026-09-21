@@ -156,9 +156,131 @@
   }
 }
 
-@keyframes petal-fall-a { 0% { transform: translate3d(0,-12vh,0) rotateX(10deg) rotateY(0) rotateZ(8deg); opacity: 0; } 12% { opacity: var(--petal-opacity); } 25% { transform: translate3d(28px,20vh,0) rotateX(120deg) rotateY(85deg) rotateZ(70deg); } 50% { transform: translate3d(-20px,50vh,0) rotateX(240deg) rotateY(170deg) rotateZ(155deg); } 75% { transform: translate3d(35px,80vh,0) rotateX(360deg) rotateY(245deg) rotateZ(240deg); } 100% { transform: translate3d(-12px,112vh,0) rotateX(500deg) rotateY(360deg) rotateZ(340deg); opacity: 0; } }
-@keyframes petal-fall-b { 0% { transform: translate3d(0,-15vh,0) rotateX(0) rotateY(30deg) rotateZ(-12deg); opacity: 0; } 10% { opacity: var(--petal-opacity); } 30% { transform: translate3d(-35px,24vh,0) rotateX(100deg) rotateY(150deg) rotateZ(-90deg); } 62% { transform: translate3d(24px,63vh,0) rotateX(270deg) rotateY(235deg) rotateZ(-190deg); } 100% { transform: translate3d(-30px,112vh,0) rotateX(450deg) rotateY(400deg) rotateZ(-310deg); opacity: 0; } }
-@keyframes petal-fall-c { 0% { transform: translate3d(0,-10vh,0) rotateX(25deg) rotateY(0) rotateZ(0); opacity: 0; } 15% { opacity: var(--petal-opacity); } 35% { transform: translate3d(18px,32vh,0) rotateX(180deg) rotateY(110deg) rotateZ(130deg); } 70% { transform: translate3d(-38px,73vh,0) rotateX(310deg) rotateY(260deg) rotateZ(250deg); } 100% { transform: translate3d(21px,112vh,0) rotateX(520deg) rotateY(390deg) rotateZ(390deg); opacity: 0; } }
+@keyframes petal-fall-a {
+  0% {
+    transform:
+      translate3d(0, -12vh, 0)
+      rotateZ(10deg)
+      rotateX(15deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: var(--petal-opacity);
+  }
+
+  30% {
+    transform:
+      translate3d(32px, 25vh, 0)
+      rotateZ(105deg)
+      rotateX(120deg);
+  }
+
+  52% {
+    transform:
+      translate3d(-18px, 51vh, 0)
+      rotateZ(205deg)
+      rotateX(230deg);
+  }
+
+  74% {
+    transform:
+      translate3d(38px, 76vh, 0)
+      rotateZ(285deg)
+      rotateX(340deg);
+  }
+
+  100% {
+    transform:
+      translate3d(-22px, 112vh, 0)
+      rotateZ(390deg)
+      rotateX(470deg);
+    opacity: 0;
+  }
+}
+
+@keyframes petal-fall-b {
+  0% {
+    transform:
+      translate3d(0, -14vh, 0)
+      rotateZ(-15deg)
+      rotateY(20deg);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: var(--petal-opacity);
+  }
+
+  34% {
+    transform:
+      translate3d(-38px, 29vh, 0)
+      rotateZ(-105deg)
+      rotateY(150deg);
+  }
+
+  58% {
+    transform:
+      translate3d(25px, 58vh, 0)
+      rotateZ(-215deg)
+      rotateY(260deg);
+  }
+
+  82% {
+    transform:
+      translate3d(-30px, 84vh, 0)
+      rotateZ(-300deg)
+      rotateY(340deg);
+  }
+
+  100% {
+    transform:
+      translate3d(20px, 112vh, 0)
+      rotateZ(-390deg)
+      rotateY(440deg);
+    opacity: 0;
+  }
+}
+
+@keyframes petal-fall-c {
+  0% {
+    transform:
+      translate3d(0, -10vh, 0)
+      rotateZ(5deg)
+      rotateX(25deg)
+      rotateY(10deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: var(--petal-opacity);
+  }
+
+  38% {
+    transform:
+      translate3d(22px, 34vh, 0)
+      rotateZ(145deg)
+      rotateX(180deg)
+      rotateY(100deg);
+  }
+
+  67% {
+    transform:
+      translate3d(-42px, 68vh, 0)
+      rotateZ(255deg)
+      rotateX(310deg)
+      rotateY(240deg);
+  }
+
+  100% {
+    transform:
+      translate3d(25px, 112vh, 0)
+      rotateZ(390deg)
+      rotateX(500deg)
+      rotateY(390deg);
+    opacity: 0;
+  }
+}
 @keyframes wave { 0%,100% { transform: scaleY(.35); } 50% { transform: scaleY(1); } }
 @keyframes opening-glide { 0% { opacity: 1; transform: translate3d(0,0,0) scale(1); } 45% { opacity: 1; transform: translate3d(0,-4px,0) scale(1.012); } 100% { opacity: 0; transform: translate3d(0,-34px,0) scale(.975); } }
 @keyframes botanical-bloom-left { 0% { transform: rotate(16deg) scale(1); } 55% { transform: translate3d(-8px,4px,0) rotateX(18deg) rotateY(-12deg) rotate(7deg) scale(1.08); } 100% { transform: translate3d(-14px,8px,0) rotateX(28deg) rotateY(-18deg) rotate(1deg) scale(1.12); } }
@@ -218,11 +340,84 @@ footer h2 { font-size: 52px; line-height: .85; }
 .polaroid { position: relative; width: min(91%, 350px); aspect-ratio: 764/1091; margin: 35px auto 45px; transform: rotate(-1deg); }
 .polaroid-photo { position: absolute; inset: 8.2% 12.6% 21.2% 12.1%; z-index: 0; width: 75.3%; height: 70.6%; object-fit: cover; object-position: center 30%; clip-path: polygon(1% 1%, 98% 0, 100% 99%, 2% 100%); }
 .polaroid-overlay { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
-.petals i { --petal-opacity: .48; position: absolute; top: -40px; left: calc((var(--i) * 7%) + 2%); width: 10px; height: 14px; border-radius: 75% 10% 70% 12%; background: oklch(0.42 0.035 66); opacity: 0; transform-origin: 55% 35%; animation: petal-fall-a calc(8s + var(--i) * .43s) ease-in-out calc(var(--i) * -.73s) infinite; }
-.petals i:nth-child(3n+2) { --petal-opacity: .34; width: 16px; height: 20px; filter: blur(.45px); animation-name: petal-fall-b; }
-.petals i:nth-child(3n) { --petal-opacity: .58; width: 22px; height: 26px; filter: blur(.9px); animation-name: petal-fall-c; }
-.petals i:nth-child(4n) { width: 13px; height: 18px; background: oklch(0.52 0.035 70); }
+/* Natural falling flower petals */
+.petals {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  overflow: hidden;
+  pointer-events: none;
+}
 
+.petals i {
+  --petal-opacity: .42;
+
+  position: absolute;
+  top: -35px;
+  left: calc((var(--i) * 7%) + 2%);
+  width: 11px;
+  height: 16px;
+
+  border-radius: 75% 18% 72% 28%;
+
+  background: oklch(0.76 0.055 20);
+  opacity: 0;
+
+  transform-origin: 55% 35%;
+
+  animation:
+    petal-fall-a calc(7s + var(--i) * .38s)
+    cubic-bezier(.42, 0, .58, 1)
+    calc(var(--i) * -.32s)
+    infinite;
+}
+
+/* Smaller, lighter petals */
+.petals i:nth-child(3n + 1) {
+  width: 8px;
+  height: 12px;
+  background: oklch(0.82 0.04 24);
+  --petal-opacity: .32;
+}
+
+/* Wider petals */
+.petals i:nth-child(3n + 2) {
+  width: 15px;
+  height: 19px;
+  background: oklch(0.73 0.06 18);
+  --petal-opacity: .36;
+  filter: blur(.2px);
+  animation-name: petal-fall-b;
+}
+
+/* Softer distant petals */
+.petals i:nth-child(3n) {
+  width: 20px;
+  height: 24px;
+  background: oklch(0.78 0.045 25);
+  --petal-opacity: .24;
+  filter: blur(.7px);
+  animation-name: petal-fall-c;
+}
+
+/* Occasional darker petals for depth */
+.petals i:nth-child(5n) {
+  width: 10px;
+  height: 15px;
+  background: oklch(0.66 0.055 20);
+  --petal-opacity: .32;
+}
+
+/* Slightly different petal silhouettes */
+.petals i:nth-child(4n) {
+  border-radius: 55% 30% 75% 20%;
+  transform-origin: 30% 60%;
+}
+
+.petals i:nth-child(7n) {
+  border-radius: 30% 70% 25% 75%;
+  transform-origin: 70% 30%;
+}
 .hero { min-height: 100vh; padding-top: 100px; background: var(--paper-deep); }.hero h1 em { display: block; margin: 9px; font-size: 28px; }.hero-leaf { position: absolute; z-index: 3; width: 150px; right: -65px; top: 250px; opacity: .32; transform: rotate(-15deg); }
 .hero-portrait { position: relative; isolation: isolate; margin-inline: -34px; padding: 4px 34px 20px; }
 .hero-portrait .polaroid { z-index: 2; }
