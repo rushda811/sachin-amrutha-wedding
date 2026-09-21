@@ -469,6 +469,66 @@ function DressCode() {
 }
 function Invitation() {
   const [opened, setOpened] = useState(false);
+  const [autoScrolling, setAutoScrolling] = useState(false);
+
+  useEffect(() => {
+    if (!opened) return;
+
+    let animationFrame: number;
+    let startTimer: number;
+    let lastTime = performance.now();
+
+    const scrollSpeed = 18; // pixels per second
+
+    const autoScroll = (currentTime: number) => {
+      if (!autoScrolling) return;
+
+      const delta = currentTime - lastTime;
+      lastTime = currentTime;
+
+      window.scrollBy(0, (scrollSpeed * delta) / 1000);
+
+      const reachedBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+
+      if (!reachedBottom) {
+        animationFrame = requestAnimationFrame(autoScroll);
+      } else {
+        setAutoScrolling(false);
+      }
+    };
+
+    startTimer = window.setTimeout(() => {
+      setAutoScrolling(true);
+      lastTime = performance.now();
+      animationFrame = requestAnimationFrame(autoScroll);
+    }, 1200);
+
+    return () => {
+      window.clearTimeout(startTimer);
+      cancelAnimationFrame(animationFrame);
+    };
+  }, [opened, autoScrolling]);
+  useEffect(() => {
+  if (!autoScrolling) return;
+
+  const pauseAutoScroll = () => {
+    setAutoScrolling(false);
+  };
+
+  window.addEventListener("wheel", pauseAutoScroll, { passive: true });
+  window.addEventListener("touchstart", pauseAutoScroll, { passive: true });
+  window.addEventListener("touchmove", pauseAutoScroll, { passive: true });
+  window.addEventListener("keydown", pauseAutoScroll);
+
+  return () => {
+    window.removeEventListener("wheel", pauseAutoScroll);
+    window.removeEventListener("touchstart", pauseAutoScroll);
+    window.removeEventListener("touchmove", pauseAutoScroll);
+    window.removeEventListener("keydown", pauseAutoScroll);
+  };
+}, [autoScrolling]);
   const googleCalendar = useMemo(() => {
     const query = new URLSearchParams({ action: "TEMPLATE", text: "Amrutha & Sachin’s Wedding Reception", dates: "20261022T105800Z/20261022T135800Z", details: "Join us as we celebrate Amrutha and Sachin.", location: "Kottaramukk, Kerala, India" });
     return `https://calendar.google.com/calendar/render?${query}`;
@@ -502,12 +562,23 @@ function Invitation() {
 <DressCode />
         <section className="section gallery">
           <p className="eyebrow">A little of our story</p><h2>Us, in quiet moments</h2>
-          <div className="photo-grid">
-{galleryPhotos.map((photo) => (
-  <figure key={photo.src}>
-    <img loading="lazy" src={photo.src} alt={photo.alt} />
-  </figure>
-))}          </div>
+<div className="photo-grid">
+  <div className="gallery-column">
+    {galleryPhotos.filter((_, index) => index % 2 === 0).map((photo) => (
+      <figure key={photo.src}>
+        <img loading="lazy" src={photo.src} alt={photo.alt} />
+      </figure>
+    ))}
+  </div>
+
+  <div className="gallery-column">
+    {galleryPhotos.filter((_, index) => index % 2 !== 0).map((photo) => (
+      <figure key={photo.src}>
+        <img loading="lazy" src={photo.src} alt={photo.alt} />
+      </figure>
+    ))}
+  </div>
+</div>
         </section>
 
         <div className="celebration-card stationery-card">
@@ -570,6 +641,29 @@ function Invitation() {
     </a>
   </Button>
 </div>
+<div className="intimate-location groom-location">
+  <p className="eyebrow">25 October · Groom's Reception</p>
+
+  <h3>Groom's Residence</h3>
+
+  <p className="intimate-location-date">
+    Sunday · 25 October 2026
+  </p>
+
+  <p className="intimate-location-note">
+    Join us for a warm celebration at the groom's residence.
+  </p>
+
+  <Button asChild variant="outline" className="outline-button">
+    <a
+      href="https://maps.app.goo.gl/s9v4tjxmWtcGKfp86"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <MapPin /> View location
+    </a>
+  </Button>
+</div>
         </section>
 <section className="section blessings-note">
   <p className="eyebrow">A note to our loved ones</p>
@@ -579,8 +673,7 @@ function Invitation() {
   <BotanicalRule />
 
   <p className="blessings-text">
-    With our loved ones by our side, we seek your presence, prayers and
-    blessings as we begin this beautiful journey together.
+By the grace of God and with the blessings of our loved ones, we seek your presence, prayers, and blessings as we begin this beautiful journey together.
   </p>
 </section>
         <Guestbook />
