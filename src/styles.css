@@ -681,26 +681,42 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
 }
 
 /* Date circle */
+/* Rose date markers */
+
 .timeline-marker {
   position: absolute;
-  z-index: 3;
+  z-index: 10;
   top: 50%;
   left: 50%;
-  width: 72px;
-  height: 72px;
+  width: 76px;
+  height: 76px;
   transform: translate(-50%, -50%);
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.timeline-marker::before,
+.timeline-marker::after {
+  display: none;
 }
 
 .timeline-marker img {
   position: absolute;
   inset: 0;
+
+  display: block;
   width: 100%;
   height: 100%;
+
   object-fit: contain;
+  opacity: 1;
+  visibility: visible;
 }
 
 .timeline-marker span {
@@ -711,8 +727,8 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
   align-items: center;
   justify-content: center;
 
-  width: 30px;
-  height: 30px;
+  width: 31px;
+  height: 31px;
 
   border-radius: 50%;
 
@@ -728,10 +744,36 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
   line-height: 1;
 
   color: var(--antique-gold);
-
-  text-shadow: 0 1px 0 white;
 }
 /* Event cards */
+.blessings-note {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  text-align: center;
+}
+
+.blessings-note h2 {
+  max-width: 340px;
+  margin: 10px auto 18px;
+}
+
+.blessings-note .botanical-rule {
+  margin: 18px auto 24px;
+}
+
+.blessings-text {
+  max-width: 390px;
+  margin: 0 auto;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.8;
+  font-style: italic;
+  color: color-mix(
+    in oklab,
+    var(--foreground) 72%,
+    transparent
+  );
+}
 
 .timeline-card {
   position: relative;
@@ -829,19 +871,6 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
 
 /* Highlight the actual wedding day */
 
-.timeline-event:nth-child(4) .timeline-marker {
-  width: 68px;
-  height: 68px;
-  border-width: 1.5px;
-  background: color-mix(in oklab, var(--antique-gold) 12%, var(--paper));
-  box-shadow:
-    0 0 0 8px color-mix(in oklab, var(--paper) 72%, transparent),
-    0 7px 22px oklch(0.29 0.02 55 / 12%);
-}
-
-.timeline-event:nth-child(4) .timeline-marker span {
-  font-size: 21px;
-}
 
 .timeline-event:nth-child(4) .timeline-card {
   border-color: color-mix(in oklab, var(--antique-gold) 55%, var(--border));
@@ -880,14 +909,16 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
     padding-left: 46%;
   }
 
-  .timeline-marker {
-    width: 52px;
-    height: 52px;
-  }
+.timeline-marker {
+  width: 62px;
+  height: 62px;
+}
 
-  .timeline-marker span {
-    font-size: 17px;
-  }
+.timeline-marker span {
+  width: 27px;
+  height: 27px;
+  font-size: 16px;
+}
 
   .timeline-card {
     width: calc(100% - 20px);
@@ -927,21 +958,7 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
     font-size: 10px;
   }
 }
-/* Highlight 22 October — Bride's Reception */
 
-.timeline-event:nth-child(2) .timeline-marker {
-  width: 68px;
-  height: 68px;
-  border-width: 1.5px;
-  background: color-mix(in oklab, var(--antique-gold) 12%, var(--paper));
-  box-shadow:
-    0 0 0 8px color-mix(in oklab, var(--paper) 72%, transparent),
-    0 7px 22px oklch(0.29 0.02 55 / 12%);
-}
-
-.timeline-event:nth-child(2) .timeline-marker span {
-  font-size: 21px;
-}
 
 .timeline-event:nth-child(2) .timeline-card {
   border-color: color-mix(in oklab, var(--antique-gold) 55%, var(--border));
