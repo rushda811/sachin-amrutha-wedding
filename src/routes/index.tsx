@@ -469,19 +469,32 @@ function DressCode() {
 }
 function Invitation() {
   const [opened, setOpened] = useState(false);
-  const [autoScrolling, setAutoScrolling] = useState(false);
+    useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (!opened) return;
 
     let animationFrame: number;
     let startTimer: number;
+    let stopped = false;
+
+    // Always start the invitation from the top
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
+
+    const scrollSpeed = 18;
     let lastTime = performance.now();
 
-    const scrollSpeed = 18; // pixels per second
-
     const autoScroll = (currentTime: number) => {
-      if (!autoScrolling) return;
+      if (stopped) return;
 
       const delta = currentTime - lastTime;
       lastTime = currentTime;
@@ -494,41 +507,93 @@ function Invitation() {
 
       if (!reachedBottom) {
         animationFrame = requestAnimationFrame(autoScroll);
-      } else {
-        setAutoScrolling(false);
       }
     };
 
+    const stopAutoScroll = () => {
+      stopped = true;
+      cancelAnimationFrame(animationFrame);
+      window.clearTimeout(startTimer);
+    };
+
+    window.addEventListener("wheel", stopAutoScroll, { passive: true });
+    window.addEventListener("touchstart", stopAutoScroll, { passive: true });
+    window.addEventListener("touchmove", stopAutoScroll, { passive: true });
+    window.addEventListener("keydown", stopAutoScroll);
+
     startTimer = window.setTimeout(() => {
-      setAutoScrolling(true);
+      if (stopped) return;
+
       lastTime = performance.now();
       animationFrame = requestAnimationFrame(autoScroll);
-    }, 1200);
+    }, 300);
 
     return () => {
+      stopped = true;
       window.clearTimeout(startTimer);
       cancelAnimationFrame(animationFrame);
+
+      window.removeEventListener("wheel", stopAutoScroll);
+      window.removeEventListener("touchstart", stopAutoScroll);
+      window.removeEventListener("touchmove", stopAutoScroll);
+      window.removeEventListener("keydown", stopAutoScroll);
     };
-  }, [opened, autoScrolling]);
-  useEffect(() => {
-  if (!autoScrolling) return;
+  }, [opened]);
 
-  const pauseAutoScroll = () => {
-    setAutoScrolling(false);
-  };
+    let animationFrame: number;
+    let startTimer: number;
+    let stopped = false;
 
-  window.addEventListener("wheel", pauseAutoScroll, { passive: true });
-  window.addEventListener("touchstart", pauseAutoScroll, { passive: true });
-  window.addEventListener("touchmove", pauseAutoScroll, { passive: true });
-  window.addEventListener("keydown", pauseAutoScroll);
+    const scrollSpeed = 18;
+    let lastTime = performance.now();
 
-  return () => {
-    window.removeEventListener("wheel", pauseAutoScroll);
-    window.removeEventListener("touchstart", pauseAutoScroll);
-    window.removeEventListener("touchmove", pauseAutoScroll);
-    window.removeEventListener("keydown", pauseAutoScroll);
-  };
-}, [autoScrolling]);
+    const autoScroll = (currentTime: number) => {
+      if (stopped) return;
+
+      const delta = currentTime - lastTime;
+      lastTime = currentTime;
+
+      window.scrollBy(0, (scrollSpeed * delta) / 1000);
+
+      const reachedBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+
+      if (!reachedBottom) {
+        animationFrame = requestAnimationFrame(autoScroll);
+      }
+    };
+
+    const stopAutoScroll = () => {
+      stopped = true;
+      cancelAnimationFrame(animationFrame);
+      window.clearTimeout(startTimer);
+    };
+
+    window.addEventListener("wheel", stopAutoScroll, { passive: true });
+    window.addEventListener("touchstart", stopAutoScroll, { passive: true });
+    window.addEventListener("touchmove", stopAutoScroll, { passive: true });
+    window.addEventListener("keydown", stopAutoScroll);
+
+    startTimer = window.setTimeout(() => {
+      if (stopped) return;
+
+      lastTime = performance.now();
+      animationFrame = requestAnimationFrame(autoScroll);
+    }, 500);
+
+    return () => {
+      stopped = true;
+      window.clearTimeout(startTimer);
+      cancelAnimationFrame(animationFrame);
+
+      window.removeEventListener("wheel", stopAutoScroll);
+      window.removeEventListener("touchstart", stopAutoScroll);
+      window.removeEventListener("touchmove", stopAutoScroll);
+      window.removeEventListener("keydown", stopAutoScroll);
+    };
+  }, [opened]);
+
   const googleCalendar = useMemo(() => {
     const query = new URLSearchParams({ action: "TEMPLATE", text: "Amrutha & Sachin’s Wedding Reception", dates: "20261022T105800Z/20261022T135800Z", details: "Join us as we celebrate Amrutha and Sachin.", location: "Kottaramukk, Kerala, India" });
     return `https://calendar.google.com/calendar/render?${query}`;
@@ -562,14 +627,58 @@ function Invitation() {
 <DressCode />
         <section className="section gallery">
           <p className="eyebrow">A little of our story</p><h2>Us, in quiet moments</h2>
-<div className="photo-grid">
-  <div className="gallery-column">
-    {galleryPhotos.filter((_, index) => index % 2 === 0).map((photo) => (
-      <figure key={photo.src}>
-        <img loading="lazy" src={photo.src} alt={photo.alt} />
-      </figure>
-    ))}
+<div className="photo-collage">
+  <div className="collage-photo collage-photo-1">
+    <img
+      loading="lazy"
+      src={galleryPhotos[0].src}
+      alt={galleryPhotos[0].alt}
+    />
   </div>
+
+  <div className="collage-photo collage-photo-2">
+    <img
+      loading="lazy"
+      src={galleryPhotos[1].src}
+      alt={galleryPhotos[1].alt}
+    />
+  </div>
+
+  <div className="collage-photo collage-photo-3">
+    <img
+      loading="lazy"
+      src={galleryPhotos[2].src}
+      alt={galleryPhotos[2].alt}
+    />
+  </div>
+
+  <div className="collage-bottom">
+    <div className="collage-photo">
+      <img
+        loading="lazy"
+        src={galleryPhotos[3].src}
+        alt={galleryPhotos[3].alt}
+      />
+    </div>
+
+    <div className="collage-photo">
+      <img
+        loading="lazy"
+        src={galleryPhotos[4].src}
+        alt={galleryPhotos[4].alt}
+      />
+
+      <div className="collage-overlay">
+        + {galleryPhotos.length - 5}
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+
+  
+  
 
   <div className="gallery-column">
     {galleryPhotos.filter((_, index) => index % 2 !== 0).map((photo) => (
