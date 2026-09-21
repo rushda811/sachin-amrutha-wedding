@@ -3,14 +3,6 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEven
 import { CalendarPlus, Check, MapPin, Music2, Pause, Play, Send } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import portrait from "@/assets/amrutha-sachin-cover.jpeg";
@@ -51,14 +43,46 @@ const calendarDays = [
 type Wish = { name: string; message: string };
 
 const galleryPhotos = [
-  { src: gardenWalk, alt: "The couple walking together beside a heritage garden", className: "portrait" },
-  { src: bouquet, alt: "An ivory bridal bouquet and heirloom jewellery", className: "square" },
-  { src: laughter, alt: "The couple sharing a quiet moment beneath garden trees", className: "landscape" },
-  { src: detail, alt: "Handcrafted wedding details with flowers", className: "portrait" },
-  { src: walk, alt: "The couple walking through a wildflower meadow", className: "portrait" },
-  { src: stationery, alt: "Ivory wedding stationery with dried botanicals", className: "portrait" },
-  { src: portrait, alt: "Amrutha and Sachin together", className: "square" },
-  { src: estate, alt: "The newlyweds walking toward a countryside estate", className: "landscape wide" },
+  {
+    src: gardenWalk,
+    alt: "The couple walking together beside a heritage garden",
+    className: "portrait",
+  },
+  {
+    src: bouquet,
+    alt: "An ivory bridal bouquet and heirloom jewellery",
+    className: "small",
+  },
+  {
+    src: laughter,
+    alt: "The couple sharing a quiet moment beneath garden trees",
+    className: "wide",
+  },
+  {
+    src: detail,
+    alt: "Handcrafted wedding details with flowers",
+    className: "portrait",
+  },
+  {
+    src: walk,
+    alt: "The couple walking through a wildflower meadow",
+    className: "tall",
+  },
+  {
+    src: stationery,
+    alt: "Ivory wedding stationery with dried botanicals",
+    className: "small",
+  },
+  {
+    src: portrait,
+    alt: "Amrutha and Sachin together",
+    className: "portrait",
+  },
+  {
+    src: estate,
+    alt: "The newlyweds walking toward a countryside estate",
+    className: "wide",
+  },
 ];
 
 function BotanicalRule() {
