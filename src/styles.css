@@ -721,8 +721,9 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
   margin: 40px 18px;
   padding: 70px 28px;
   text-align: center;
-  background: transparent;
-  border: none;
+.blessings-note {
+  background: #f7f1e6;
+}  border: none;
   box-shadow: none;
 }
 
