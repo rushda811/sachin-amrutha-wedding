@@ -308,8 +308,10 @@ function WeddingTimeline() {
 </div>
 
             <div className="timeline-card">
-              <span className="timeline-month">{event.month}</span>
-              <h3>{event.title}</h3>
+<span className="timeline-month">
+  {event.date}
+  {event.date === "22" ? "ND" : event.date === "23" ? "RD" : event.date === "24" ? "TH" : "TH"} OCTOBER
+</span>              <h3>{event.title}</h3>
               <p className="timeline-time">{event.time}</p>
               <p className="timeline-detail">{event.detail}</p>
             </div>
