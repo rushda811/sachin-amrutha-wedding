@@ -792,10 +792,10 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
   display: block;
   margin-bottom: 5px;
   font-size: 9px;
-  letter-spacing: 0.22em;
-  color: color-mix(in oklab, var(--antique-gold) 90%, var(--foreground));
+  letter-spacing: 0.18em;
+  color: #5a3d2b;
+  font-weight: 600;
 }
-
 .timeline-card h3 {
   margin: 0 0 7px;
   font-family: var(--font-serif);
