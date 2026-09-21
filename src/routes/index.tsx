@@ -17,6 +17,7 @@ import paper from "@/assets/paper.webp";
 import frame from "@/assets/frame-avatar.webp";
 import house from "@/assets/house-background.webp";
 import flower from "@/assets/flower.webp";
+import rose from "@/assets/rose.png";
 import leaf from "@/assets/leaf-background.webp";
 import music from "@/assets/yt-915f7a0b-a1c.mp3";
 
@@ -302,9 +303,10 @@ function WeddingTimeline() {
             className={`timeline-event timeline-event-${event.side}`}
             key={`${event.date}-${event.title}`}
           >
-            <div className="timeline-marker">
-              <span>{event.date}</span>
-            </div>
+          <div className="timeline-marker">
+  <img src={rose} alt="" />
+  <span>{event.date}</span>
+</div>
 
             <div className="timeline-card">
               <span className="timeline-month">{event.month}</span>
