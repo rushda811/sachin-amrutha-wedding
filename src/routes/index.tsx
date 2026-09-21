@@ -268,7 +268,7 @@ function WeddingTimeline() {
     {
       date: "24",
       month: "OCTOBER",
-      title: "The Wedding",
+      title: "Intimate Wedding",
       time: "Muhurtham · 12:10 – 12:50 PM",
       detail: "Cascadia Resort · Family & Friends",
       side: "left",
@@ -472,8 +472,6 @@ function Invitation() {
     blessings as we begin this beautiful journey together.
   </p>
 </section>
-
-<Guestbook />
         <Guestbook />
         <footer><img src={flower} alt="" /><p>Your presence would be the greatest gift<br />we could receive!</p><BotanicalRule /><h2>Amrutha <em>&</em> Sachin</h2><span>22 · 10 · 2026</span></footer>
       </article>

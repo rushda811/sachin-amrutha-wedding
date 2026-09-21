@@ -683,6 +683,8 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
 /* Date circle */
 /* Rose date markers */
 
+/* Rose date markers */
+
 .timeline-marker {
   position: absolute;
   z-index: 10;
@@ -691,29 +693,21 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
   width: 76px;
   height: 76px;
   transform: translate(-50%, -50%);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: transparent;
   border: none;
   box-shadow: none;
 }
 
-.timeline-marker::before,
-.timeline-marker::after {
-  display: none;
-}
-
 .timeline-marker img {
   position: absolute;
   inset: 0;
-
+  z-index: 1;
   display: block;
   width: 100%;
   height: 100%;
-
   object-fit: contain;
   opacity: 1;
   visibility: visible;
@@ -722,29 +716,20 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
 .timeline-marker span {
   position: relative;
   z-index: 2;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 31px;
   height: 31px;
-
   border-radius: 50%;
-
-  background: color-mix(
-    in oklab,
-    var(--paper) 82%,
-    #d8b7a5
-  );
-
+  background: color-mix(in oklab, var(--paper) 82%, #d8b7a5);
   font-family: var(--font-serif);
   font-size: 18px;
   font-weight: 500;
   line-height: 1;
-
   color: var(--antique-gold);
 }
+
 /* Event cards */
 .blessings-note {
   padding-top: 70px;
@@ -909,16 +894,6 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
     padding-left: 46%;
   }
 
-.timeline-marker {
-  width: 62px;
-  height: 62px;
-}
-
-.timeline-marker span {
-  width: 27px;
-  height: 27px;
-  font-size: 16px;
-}
 
   .timeline-card {
     width: calc(100% - 20px);
@@ -967,49 +942,7 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
 .timeline-event:nth-child(2) .timeline-card h3 {
   font-size: 23px;
 }
-/* ─────────────────────────────
-   TIMELINE — SOFT EVENT COLOURS
-───────────────────────────── */
 
-.timeline-event:nth-child(2) .timeline-card {
-  background:
-    linear-gradient(
-      135deg,
-      color-mix(in oklab, #f7d6d2 32%, transparent),
-      transparent 70%
-    ),
-    color-mix(in oklab, var(--paper) 88%, #f7d6d2);
-}
-
-.timeline-event:nth-child(3) .timeline-card {
-  background:
-    linear-gradient(
-      135deg,
-      color-mix(in oklab, #e5d7bd 32%, transparent),
-      transparent 70%
-    ),
-    color-mix(in oklab, var(--paper) 88%, #e5d7bd);
-}
-
-.timeline-event:nth-child(4) .timeline-card {
-  background:
-    linear-gradient(
-      135deg,
-      color-mix(in oklab, #d9e5d3 32%, transparent),
-      transparent 70%
-    ),
-    color-mix(in oklab, var(--paper) 88%, #d9e5d3);
-}
-
-.timeline-event:nth-child(5) .timeline-card {
-  background:
-    linear-gradient(
-      135deg,
-      color-mix(in oklab, #e3d5df 32%, transparent),
-      transparent 70%
-    ),
-    color-mix(in oklab, var(--paper) 88%, #e3d5df);
-}
 /* ─────────────────────────────
    DRESS CODE
 ───────────────────────────── */
