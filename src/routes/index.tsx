@@ -277,6 +277,43 @@ function WeddingTimeline() {
       side: "right",
     },
   ];
+
+  return (
+    <section className="section wedding-timeline">
+      <div className="timeline-heading">
+        <p className="eyebrow">Four days · One beautiful beginning</p>
+        <h2>Our wedding days</h2>
+        <BotanicalRule />
+        <p className="timeline-intro">
+          From the first celebration to the moment we say “I do,” we would love
+          to have you with us through every chapter.
+        </p>
+      </div>
+
+      <div className="timeline">
+        <div className="timeline-line" aria-hidden="true" />
+
+        {events.map((event) => (
+          <div
+            className={`timeline-event timeline-event-${event.side}`}
+            key={`${event.date}-${event.title}`}
+          >
+            <div className="timeline-marker">
+              <span>{event.date}</span>
+            </div>
+
+            <div className="timeline-card">
+              <span className="timeline-month">{event.month}</span>
+              <h3>{event.title}</h3>
+              <p className="timeline-time">{event.time}</p>
+              <p className="timeline-detail">{event.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
 function DressCode() {
   const colors = [
     "#FFD6D6",
