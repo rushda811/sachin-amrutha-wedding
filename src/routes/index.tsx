@@ -10,6 +10,7 @@ import {
   Play,
   Send,
 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -199,35 +200,98 @@ function RsvpForm() {
 function Guestbook() {
   const [wishes, setWishes] = useState<Wish[]>([]);
   const [sent, setSent] = useState(false);
+
   useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem("amrutha-sachin-wishes");
-      if (stored) {
-        const saved = JSON.parse(stored) as Wish[];
-        const genuine = saved.filter((wish) => wish.name !== "Anjali & Arun" && wish.name !== "The Menon Family");
-        setWishes(genuine);
-        if (genuine.length !== saved.length) window.localStorage.setItem("amrutha-sachin-wishes", JSON.stringify(genuine));
+    async function loadWishes() {
+      const { data, error } = await supabase
+        .from("wishes")
+        .select("name, message")
+        .order("created_at", { ascending: false })
+        .limit(20);
+
+      if (error) {
+        console.error("Could not load wishes:", error);
+        return;
       }
-    } catch { /* Start with a clean guestbook when storage is unavailable. */ }
+
+      setWishes(data ?? []);
+    }
+
+    loadWishes();
   }, []);
-  function submit(event: FormEvent<HTMLFormElement>) {
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     const form = new FormData(event.currentTarget);
-    const next = [...wishes, { name: String(form.get("name")), message: String(form.get("message")) }];
-    setWishes(next);
-    window.localStorage.setItem("amrutha-sachin-wishes", JSON.stringify(next));
+
+    const name = String(form.get("name") ?? "").trim();
+    const message = String(form.get("message") ?? "").trim();
+
+    if (!name || !message) return;
+
+    const { data, error } = await supabase
+      .from("wishes")
+      .insert({
+        name,
+        message,
+      })
+      .select("name, message")
+      .single();
+
+    if (error) {
+      console.error("Could not send wish:", error);
+      return;
+    }
+
+    if (data) {
+      setWishes((current) => [data, ...current]);
+    }
+
     event.currentTarget.reset();
     setSent(true);
-    window.setTimeout(() => setSent(false), 2200);
+
+    window.setTimeout(() => {
+      setSent(false);
+    }, 2200);
   }
+
   return (
     <section className="section guestbook">
-      <p className="eyebrow">Letters from loved ones</p><h2>Guestbook</h2>
-      {wishes.length > 0 && <div className="wish-list">{wishes.slice(-3).reverse().map((wish, index) => <blockquote key={`${wish.name}-${index}`}><p>“{wish.message}”</p><cite>— {wish.name}</cite></blockquote>)}</div>}
+      <p className="eyebrow">Letters from loved ones</p>
+
+      <h2>Guestbook</h2>
+
+      {wishes.length > 0 && (
+        <div className="wish-list">
+          {wishes.map((wish, index) => (
+            <blockquote key={`${wish.name}-${index}`}>
+              <p>“{wish.message}”</p>
+              <cite>— {wish.name}</cite>
+            </blockquote>
+          ))}
+        </div>
+      )}
+
       <form className="editorial-form" onSubmit={submit}>
-        <label>Name<Input required name="name" placeholder="Your name" /></label>
-        <label>Your wishes<Textarea required name="message" placeholder="Write a few heartfelt words" /></label>
-        <Button type="submit" className="ink-button"><Send />{sent ? "Sent with love" : "Send wishes"}</Button>
+        <label>
+          Name
+          <Input required name="name" placeholder="Your name" />
+        </label>
+
+        <label>
+          Your wishes
+          <Textarea
+            required
+            name="message"
+            placeholder="Write a few heartfelt words"
+          />
+        </label>
+
+        <Button type="submit" className="ink-button">
+          <Send />
+          {sent ? "Sent with love" : "Send wishes"}
+        </Button>
       </form>
     </section>
   );
