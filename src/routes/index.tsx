@@ -103,8 +103,7 @@ function Opening({ onOpen }: { onOpen: () => void }) {
 const beginOpening = () => {
   if (celebrating) return;
   setCelebrating(true);
-  window.setTimeout(onOpen, 520);
-};
+  window.setTimeout(onOpen, 1100);};
   return (
     <div className={celebrating ? "opening is-celebrating" : "opening"} aria-label="Wedding invitation cover">
 <div className="petals" aria-hidden="true">
@@ -124,9 +123,14 @@ const beginOpening = () => {
     />
   ))}
 </div>
-      <div className="celebration-burst" aria-hidden="true">
-        {Array.from({ length: 24 }, (_, index) => <i key={index} style={{ "--i": index } as CSSProperties} />)}
-      </div>
+<div className="celebration-burst" aria-hidden="true">
+  {Array.from({ length: 32 }, (_, index) => (
+    <i
+      key={index}
+      style={{ "--i": index } as CSSProperties}
+    />
+  ))}
+</div>
       <div className="opening-card">
         <img className="opening-leaf opening-leaf-left" src={leaf} alt="" />
         <img className="opening-flower" src={flower} alt="" />

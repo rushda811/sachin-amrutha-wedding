@@ -285,8 +285,25 @@
 @keyframes opening-glide { 0% { opacity: 1; transform: translate3d(0,0,0) scale(1); } 45% { opacity: 1; transform: translate3d(0,-4px,0) scale(1.012); } 100% { opacity: 0; transform: translate3d(0,-34px,0) scale(.975); } }
 @keyframes botanical-bloom-left { 0% { transform: rotate(16deg) scale(1); } 55% { transform: translate3d(-8px,4px,0) rotateX(18deg) rotateY(-12deg) rotate(7deg) scale(1.08); } 100% { transform: translate3d(-14px,8px,0) rotateX(28deg) rotateY(-18deg) rotate(1deg) scale(1.12); } }
 @keyframes botanical-bloom-right { 0% { transform: rotate(-22deg) scale(1); } 55% { transform: translate3d(8px,-3px,0) rotateX(-16deg) rotateY(14deg) rotate(-10deg) scale(1.08); } 100% { transform: translate3d(14px,-7px,0) rotateX(-25deg) rotateY(20deg) rotate(-5deg) scale(1.12); } }
-@keyframes champagne-burst { 0% { opacity: 0; transform: rotate(calc(var(--i) * 15deg)) translateY(0) rotateX(0deg) scale(.2); } 18% { opacity: .92; } 100% { opacity: 0; transform: rotate(calc(var(--i) * 15deg)) translateY(-132px) rotateX(430deg) scale(.8); } }
+@keyframes champagne-burst {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateY(0) scale(0);
+  }
 
+  15% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: .9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateY(-190px) scale(1);
+  }
+}
 .app-shell { min-height: 100vh; background: var(--paper-deep); }
 .invitation { position: relative; width: 100%; max-width: 470px; margin: 0 auto; overflow: hidden; background-color: var(--paper-deep); background-repeat: repeat; background-size: 430px auto; box-shadow: 0 0 54px oklch(0.29 0.02 55 / 20%); }
 .invitation::before { position: absolute; inset: 6px; z-index: 50; border: 1px solid color-mix(in oklab, var(--antique-gold) 68%, transparent); box-shadow: inset 0 0 0 3px var(--paper-deep), inset 0 0 0 4px color-mix(in oklab, var(--antique-gold) 32%, transparent); content: ""; pointer-events: none; }
@@ -305,8 +322,7 @@ h2 { margin-bottom: 24px; font-size: 39px; font-weight: 400; line-height: 1; }
 
 .opening-wrap { position: fixed; inset: 0; z-index: 80; transition: opacity .5s ease, visibility .5s ease; }
 .opening-wrap.is-opened { visibility: hidden; opacity: 0; pointer-events: none; }
-.opening { display: grid; min-height: 100%; place-items: center; overflow: hidden; padding: 18px; background: var(--linen); }
-.opening-card { position: relative; display: flex; width: min(100%, 390px); height: min(580px, calc(100dvh - 32px)); max-height: 580px; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; padding: 30px 28px 26px; background: var(--paper);  border-radius: 22px;
+.opening { position: relative; display: grid; min-height: 100%; place-items: center; overflow: hidden; padding: 18px; background: var(--linen); }.opening-card { position: relative; display: flex; width: min(100%, 390px); height: min(580px, calc(100dvh - 32px)); max-height: 580px; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; padding: 30px 28px 26px; background: var(--paper);  border-radius: 22px;
   overflow: hidden; box-shadow: 0 25px 70px oklch(0.255 0.022 53 / 25%); text-align: center; }
 .opening-card::after { position: absolute; inset: 10px; border: 1px solid var(--border); content: ""; pointer-events: none; }
 .opening-card h1 { position: relative; z-index: 2; max-width: 300px; margin-bottom: 5px; font-size: 47px; }
@@ -332,13 +348,28 @@ footer h2 { font-size: 52px; line-height: .85; }
 .opening.is-celebrating .opening-flower {
   animation: botanical-bloom-right .9s ease-out both;
 }
-.celebration-burst { position: absolute; z-index: 10; top: 50%; left: 50%; width: 1px; height: 1px; pointer-events: none; }
-.celebration-burst i { position: absolute; width: 5px; height: 11px; border-radius: 70% 15% 70% 15%; background: var(--antique-gold); opacity: 0; transform-origin: 50% 110px; }
+.celebration-burst { position: absolute; z-index: 100; top: 50%; left: 50%; width: 0; height: 0; pointer-events: none; }.celebration-burst i { position: absolute; width: 5px; height: 11px; border-radius: 70% 15% 70% 15%; background: var(--antique-gold); opacity: 0; transform-origin: 50% 110px; }
 .celebration-burst i:nth-child(3n+1) { width: 3px; height: 8px; background: var(--gold-light); }
 .celebration-burst i:nth-child(3n+2) { width: 7px; height: 7px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 1px var(--antique-gold); }
 .celebration-burst i:nth-child(4n) { transform-origin: 50% 92px; }
 .celebration-burst i:nth-child(4n+2) { transform-origin: 50% 148px; }
-.opening.is-celebrating .celebration-burst i { animation: champagne-burst .56s cubic-bezier(.15,.75,.28,1) calc(var(--i) * 5ms) both; }
+.opening.is-celebrating .celebration-burst i {
+  animation: champagne-burst .9s cubic-bezier(.15,.75,.28,1) calc(var(--i) * 12ms) both;
+}
+.opening.is-celebrating .celebration-burst i {
+  --angle: calc(var(--i) * 11.25deg);
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 101;
+  width: 6px;
+  height: 14px;
+  border-radius: 60% 20% 60% 20%;
+  background: var(--antique-gold);
+  opacity: 0;
+  transform: rotate(var(--angle)) translateY(0) scale(0);
+}
 .open-button,.ink-button { min-width: 150px; height: 44px; border-radius: 999px; padding-inline: 24px; font-family: var(--font-sans); font-size: 10px; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; box-shadow: 0 5px 14px oklch(0.29 0.02 55 / 14%); }
 .open-button { position: relative; z-index: 3; margin-top: 12px; }
 .polaroid-compact { width: 132px !important; margin: 2px auto 5px !important; }
