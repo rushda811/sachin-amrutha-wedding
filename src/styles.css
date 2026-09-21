@@ -706,9 +706,28 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
   z-index: 2;
   width: calc(100% - 28px);
   padding: 20px 22px 21px;
-  border: 1px solid color-mix(in oklab, var(--antique-gold) 30%, var(--border));
-  background: color-mix(in oklab, var(--paper) 58%, transparent);
-  box-shadow: 0 6px 18px oklch(0.29 0.02 55 / 5%);
+
+  border: 1px solid color-mix(
+    in oklab,
+    var(--antique-gold) 42%,
+    var(--border)
+  );
+
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, #d8b7a5 18%, transparent),
+      transparent 65%
+    ),
+    color-mix(in oklab, var(--paper) 88%, #d8b7a5);
+
+  box-shadow:
+    0 10px 28px oklch(0.29 0.02 55 / 7%),
+    inset 0 1px 0 color-mix(
+      in oklab,
+      white 45%,
+      transparent
+    );
 }
 
 /* Different shapes make it feel editorial rather than repetitive */
@@ -898,6 +917,49 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
 
 .timeline-event:nth-child(2) .timeline-card h3 {
   font-size: 23px;
+}
+/* ─────────────────────────────
+   TIMELINE — SOFT EVENT COLOURS
+───────────────────────────── */
+
+.timeline-event:nth-child(2) .timeline-card {
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, #f7d6d2 32%, transparent),
+      transparent 70%
+    ),
+    color-mix(in oklab, var(--paper) 88%, #f7d6d2);
+}
+
+.timeline-event:nth-child(3) .timeline-card {
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, #e5d7bd 32%, transparent),
+      transparent 70%
+    ),
+    color-mix(in oklab, var(--paper) 88%, #e5d7bd);
+}
+
+.timeline-event:nth-child(4) .timeline-card {
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, #d9e5d3 32%, transparent),
+      transparent 70%
+    ),
+    color-mix(in oklab, var(--paper) 88%, #d9e5d3);
+}
+
+.timeline-event:nth-child(5) .timeline-card {
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, #e3d5df 32%, transparent),
+      transparent 70%
+    ),
+    color-mix(in oklab, var(--paper) 88%, #e3d5df);
 }
 /* ─────────────────────────────
    DRESS CODE
