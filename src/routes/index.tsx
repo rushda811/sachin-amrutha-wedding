@@ -276,39 +276,77 @@ function WeddingTimeline() {
       side: "right",
     },
   ];
+function DressCode() {
+  const colors = [
+    "#FFD6D6",
+    "#FFC8C8",
+    "#FFBABA",
+    "#FFAFAF",
+    "#FFE3C6",
+    "#FFD6AE",
+    "#FFCC99",
+    "#FFDA87",
+    "#FFEB99",
+    "#FFF2B5",
+    "#F6F4D0",
+    "#E4F7BF",
+    "#CFF3A8",
+    "#BFE7C6",
+    "#A9E3BF",
+    "#8EDFD1",
+    "#A2E4E2",
+    "#B3E9EE",
+    "#C1ECF8",
+    "#D0F0FF",
+    "#D6E2FF",
+    "#C8CEFF",
+    "#B9B8FF",
+    "#D8C1FF",
+    "#E6CCFF",
+    "#F4D6FF",
+    "#FFD9F2",
+    "#FFC8E1",
+    "#FFB2CE",
+    "#FFA3C0",
+    "#FF9EB7",
+    "#FF99AE",
+  ];
 
   return (
-    <section className="section wedding-timeline">
-      <div className="timeline-heading">
-        <p className="eyebrow">Four days · One beautiful beginning</p>
-        <h2>Our wedding days</h2>
-        <BotanicalRule />
-        <p className="timeline-intro">
-          From the first celebration to the moment we say “I do,”
-          we would love to have you with us through every chapter.
+    <section className="section dress-code">
+      <p className="eyebrow">22 October · Bride's Reception</p>
+
+      <h2>Dress Code</h2>
+
+      <BotanicalRule />
+
+      <div className="dress-code-card">
+        <span className="dress-code-label">The colour palette</span>
+
+        <h3>Soft, joyful & elegant</h3>
+
+        <p>
+          We invite you to celebrate with us in soft, festive colours.
+          Feel free to choose any shade from the palette below and make
+          it your own.
         </p>
-      </div>
 
-      <div className="timeline">
-        <div className="timeline-line" aria-hidden="true" />
+        <div className="dress-palette" aria-label="Dress code colour palette">
+          {colors.map((color) => (
+            <span
+              key={color}
+              className="dress-color"
+              style={{ backgroundColor: color }}
+              title={color}
+            />
+          ))}
+        </div>
 
-        {events.map((event, index) => (
-          <div
-            className={`timeline-event timeline-event-${event.side}`}
-            key={`${event.date}-${event.title}`}
-          >
-            <div className="timeline-marker">
-              <span>{event.date}</span>
-            </div>
+        <div className="dress-code-line" />
 
-            <div className="timeline-card">
-              <span className="timeline-month">{event.month}</span>
-              <h3>{event.title}</h3>
-              <p className="timeline-time">{event.time}</p>
-              <p className="timeline-detail">{event.detail}</p>
-            </div>
-          </div>
-        ))}
+        <span className="dress-code-note">
+          Pastels · Florals · Soft festive tones
+        </span>
       </div>
     </section>
   );
@@ -344,7 +382,7 @@ function Invitation() {
                </section>
 
         <WeddingTimeline />
-
+<DressCode />
         <section className="section gallery">
           <p className="eyebrow">A little of our story</p><h2>Us, in quiet moments</h2>
           <div className="photo-grid">

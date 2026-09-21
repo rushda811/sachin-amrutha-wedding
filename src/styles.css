@@ -886,6 +886,120 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
 .timeline-event:nth-child(2) .timeline-card h3 {
   font-size: 23px;
 }
+/* ─────────────────────────────
+   DRESS CODE
+───────────────────────────── */
+
+.dress-code {
+  padding-top: 60px;
+  padding-bottom: 72px;
+  background: var(--parchment);
+}
+
+.dress-code h2 {
+  margin-bottom: 14px;
+}
+
+.dress-code {
+  padding-top: 60px;
+  padding-bottom: 72px;
+  background: var(--parchment);
+}
+
+.dress-code h2 {
+  margin-bottom: 14px;
+}
+
+.dress-code-card {
+  max-width: 360px;
+  margin: 34px auto 0;
+  padding: 30px 24px 28px;
+  border: 1px solid color-mix(
+    in oklab,
+    var(--antique-gold) 48%,
+    var(--border)
+  );
+  border-radius: 20px 2px 20px 20px;
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, white 28%, transparent),
+      transparent
+    ),
+    color-mix(in oklab, var(--paper) 94%, white);
+  box-shadow:
+    0 12px 30px oklch(0.29 0.02 55 / 8%),
+    inset 0 0 0 3px color-mix(
+      in oklab,
+      var(--gold-light) 14%,
+      transparent
+    );
+}
+
+.dress-code-label {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--antique-gold);
+}
+
+.dress-code-card h3 {
+  margin: 0 0 12px;
+  font-family: var(--font-serif);
+  font-size: 29px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.dress-code-card p {
+  max-width: 285px;
+  margin: 0 auto;
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+/* Colour palette */
+
+.dress-palette {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+  max-width: 290px;
+  margin: 26px auto 4px;
+}
+
+.dress-color {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid oklch(0.29 0.02 55 / 10%);
+  box-shadow:
+    inset 0 0 0 1px oklch(1 0 0 / 22%),
+    0 2px 5px oklch(0.29 0.02 55 / 7%);
+}
+
+.dress-code-line {
+  width: 42px;
+  height: 1px;
+  margin: 20px auto 15px;
+  background: var(--antique-gold);
+  opacity: .65;
+}
+
+.dress-code-note {
+  display: block;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  line-height: 1.7;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
 @media (max-height: 620px) { .opening-card { height: calc(100dvh - 20px); padding-block: 20px; }.opening-card h1 { font-size: 40px; }.opening-card .botanical-rule { margin-block: 10px; }.opening-card .eyebrow { margin-bottom: 10px; }.polaroid-compact { width: 105px !important; } }
 @media (min-width: 640px) { .app-shell { padding-block: 34px; }.invitation { max-width: 570px; border: 1px solid color-mix(in oklab, var(--antique-gold) 42%, var(--border)); }.invitation::before { inset: 9px; }.section { padding-inline: 54px; }.polaroid { width: min(82%, 390px); } }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
