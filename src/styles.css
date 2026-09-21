@@ -701,6 +701,7 @@ background: transparent;
   box-shadow: none;
 }
 
+
 .timeline-marker img {
   position: absolute;
   inset: 0;
@@ -1140,3 +1141,40 @@ background: transparent;
 @media (max-height: 620px) { .opening-card { height: calc(100dvh - 20px); padding-block: 20px; }.opening-card h1 { font-size: 40px; }.opening-card .botanical-rule { margin-block: 10px; }.opening-card .eyebrow { margin-bottom: 10px; }.polaroid-compact { width: 105px !important; } }
 @media (min-width: 640px) { .app-shell { padding-block: 34px; }.invitation { max-width: 570px; border: 1px solid color-mix(in oklab, var(--antique-gold) 42%, var(--border)); }.invitation::before { inset: 9px; }.section { padding-inline: 54px; }.polaroid { width: min(82%, 390px); } }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+.intimate-location {
+  margin-top: 58px;
+  padding-top: 42px;
+  border-top: 1px solid color-mix(
+    in oklab,
+    var(--antique-gold) 35%,
+    var(--border)
+  );
+  text-align: center;
+}
+
+.intimate-location .eyebrow {
+  margin-bottom: 12px;
+}
+
+.intimate-location h3 {
+  margin: 0 0 10px;
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.intimate-location-date {
+  margin: 0 0 10px;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  color: var(--ink-soft);
+}
+
+.intimate-location-note {
+  max-width: 300px;
+  margin: 0 auto 22px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: color-mix(in oklab, var(--foreground) 65%, transparent);
+}

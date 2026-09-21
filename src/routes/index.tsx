@@ -529,8 +529,47 @@ function Invitation() {
         <section className="section venue">
           <p className="eyebrow">Wedding reception venue</p><h2>Kottaramukk</h2>
           <img className="venue-house" loading="lazy" src={house} alt="Watercolour illustration of the wedding venue" />
-          <div className="venue-details"><MapPin aria-hidden="true" /><div><strong>At my Residence</strong><span>Kottaramukk, Kerala, India</span></div></div>
-          <Button asChild variant="outline" className="outline-button"><a href="https://maps.app.goo.gl/ja1bNUAQe6F4ndjTA" target="_blank" rel="noreferrer"><MapPin />Get directions</a></Button>
+          <div className="venue-details">
+  <MapPin aria-hidden="true" />
+  <div>
+    <strong>At my Residence</strong>
+    <span>Kottaramukk, Kerala, India</span>
+  </div>
+</div>
+
+<Button asChild variant="outline" className="outline-button">
+  <a
+    href="https://maps.app.goo.gl/ja1bNUAQe6F4ndjTA"
+    target="_blank"
+    rel="noreferrer"
+  >
+    <MapPin /> Get directions
+  </a>
+</Button>
+
+<div className="intimate-location">
+  <p className="eyebrow">24 October · Family & Friends</p>
+
+  <h3>Intimate Wedding</h3>
+
+  <p className="intimate-location-date">
+    Saturday · 24 October 2026
+  </p>
+
+  <p className="intimate-location-note">
+    An intimate celebration with our closest family and friends.
+  </p>
+
+  <Button asChild variant="outline" className="outline-button">
+    <a
+      href="https://maps.app.goo.gl/EspLg2Ez63w8aZfW8"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <MapPin /> View location
+    </a>
+  </Button>
+</div>
         </section>
 <section className="section blessings-note">
   <p className="eyebrow">A note to our loved ones</p>
