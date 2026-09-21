@@ -721,10 +721,13 @@ background: #f7f1e6;;
   margin: 40px 18px;
   padding: 70px 28px;
   text-align: center;
-.blessings-note {
-  background: #f7f1e6;
-}  border: none;
+  background: transparent;
+  border: none;
   box-shadow: none;
+}
+.blessings {
+  background-image: none !important;
+  background-color: var(--paper-deep) !important;
 }
 
 .blessings-note::before {
