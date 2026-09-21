@@ -273,7 +273,7 @@ function WeddingTimeline() {
       month: "OCTOBER",
       title: "Groom's Reception",
       time: "Reception",
-      detail: "A celebration with loved ones",
+      detail: "A celebration at Groom's Residence",
       side: "right",
     },
   ];
@@ -397,8 +397,9 @@ function Invitation() {
   }, []);
   return (
     <main className="app-shell">
-      <div className={opened ? "opening-wrap is-opened" : "opening-wrap"}>{!opened && <Opening onOpen={() => setOpened(true)} />}</div>
-      <MusicPlayer active={opened} />
+<div className={opened ? "opening-wrap is-opened" : "opening-wrap"}>
+  <Opening onOpen={() => setOpened(true)} />
+</div>      <MusicPlayer active={opened} />
       <article className="invitation" style={{ backgroundImage: `url(${paper})`, "--flower-art": `url(${flower})`, "--leaf-art": `url(${leaf})` } as CSSProperties}>
         <section className="hero section">
           <img className="hero-leaf" src={leaf} alt="" />
