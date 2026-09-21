@@ -306,7 +306,8 @@ h2 { margin-bottom: 24px; font-size: 39px; font-weight: 400; line-height: 1; }
 .opening-wrap { position: fixed; inset: 0; z-index: 80; transition: opacity .5s ease, visibility .5s ease; }
 .opening-wrap.is-opened { visibility: hidden; opacity: 0; pointer-events: none; }
 .opening { display: grid; min-height: 100%; place-items: center; overflow: hidden; padding: 18px; background: var(--linen); }
-.opening-card { position: relative; display: flex; width: min(100%, 390px); height: min(580px, calc(100dvh - 32px)); max-height: 580px; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; padding: 30px 28px 26px; background: var(--paper); box-shadow: 0 25px 70px oklch(0.255 0.022 53 / 25%); text-align: center; }
+.opening-card { position: relative; display: flex; width: min(100%, 390px); height: min(580px, calc(100dvh - 32px)); max-height: 580px; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; padding: 30px 28px 26px; background: var(--paper);  border-radius: 22px;
+  overflow: hidden; box-shadow: 0 25px 70px oklch(0.255 0.022 53 / 25%); text-align: center; }
 .opening-card::after { position: absolute; inset: 10px; border: 1px solid var(--border); content: ""; pointer-events: none; }
 .opening-card h1 { position: relative; z-index: 2; max-width: 300px; margin-bottom: 5px; font-size: 47px; }
 .opening-card h1 em { display: block; margin: 7px 0; font-size: 26px; }
@@ -369,15 +370,15 @@ footer h2 { font-size: 52px; line-height: .85; }
 }.polaroid-overlay { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
 /* Natural falling flower petals */
 .petals {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: 20;
+  z-index: 70;
   overflow: hidden;
   pointer-events: none;
 }
 
 .petals i {
-  --petal-opacity: .42;
+  --petal-opacity: .62;
 
   position: absolute;
   top: -35px;
@@ -387,7 +388,7 @@ footer h2 { font-size: 52px; line-height: .85; }
 
   border-radius: 75% 18% 72% 28%;
 
-  background: oklch(0.76 0.055 20);
+  background: oklch(0.61 0.055 20);
   opacity: 0;
 
   transform-origin: 55% 35%;
@@ -403,38 +404,34 @@ footer h2 { font-size: 52px; line-height: .85; }
 .petals i:nth-child(3n + 1) {
   width: 8px;
   height: 12px;
-  background: oklch(0.82 0.04 24);
-  --petal-opacity: .32;
+  background: oklch(0.70 0.045 24);
+  --petal-opacity: .48;
 }
 
-/* Wider petals */
 .petals i:nth-child(3n + 2) {
   width: 15px;
   height: 19px;
-  background: oklch(0.73 0.06 18);
-  --petal-opacity: .36;
+  background: oklch(0.58 0.06 18);
+  --petal-opacity: .55;
   filter: blur(.2px);
   animation-name: petal-fall-b;
 }
 
-/* Softer distant petals */
 .petals i:nth-child(3n) {
   width: 20px;
   height: 24px;
-  background: oklch(0.78 0.045 25);
-  --petal-opacity: .24;
+  background: oklch(0.66 0.045 25);
+  --petal-opacity: .38;
   filter: blur(.7px);
   animation-name: petal-fall-c;
 }
 
-/* Occasional darker petals for depth */
 .petals i:nth-child(5n) {
   width: 10px;
   height: 15px;
-  background: oklch(0.66 0.055 20);
-  --petal-opacity: .32;
+  background: oklch(0.50 0.055 20);
+  --petal-opacity: .65;
 }
-
 /* Slightly different petal silhouettes */
 .petals i:nth-child(4n) {
   border-radius: 55% 30% 75% 20%;
