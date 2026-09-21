@@ -27,7 +27,7 @@ import house from "@/assets/house-background.webp";
 import flower from "@/assets/flower.webp";
 import rose from "@/assets/rose.png";
 import leaf from "@/assets/leaf-background.webp";
-import music from "@/assets/yt-915f7a0b-a1c.mp3";
+import music from "@/assets/yt-915f7a0b-a1c_77nDFw1b.mp3";
 
 export const Route = createFileRoute("/")({
 head: () => ({
