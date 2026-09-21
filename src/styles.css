@@ -716,24 +716,23 @@ background: #f7f1e6;;
 
 
 /* Event cards */
+/* Event cards */
+
 .blessings-note {
   position: relative;
-  margin: 40px 18px;
+  margin: 40px 0;
   padding: 70px 28px;
   text-align: center;
-  background: transparent;
+  background: var(--paper-deep) !important;
   border: none;
   box-shadow: none;
-}
-.blessings {
-  background-image: none !important;
-  background-color: var(--paper-deep) !important;
+  isolation: isolate;
 }
 
 .blessings-note::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 0 18px;
   z-index: 0;
 
   border: 1px solid color-mix(
@@ -759,10 +758,34 @@ background: #f7f1e6;;
   position: relative;
   z-index: 1;
 }
-.blessings-note::before {
-  content: "";
-  position: absolute;
+
+.blessings-note h2 {
+  max-width: 340px;
+  margin: 10px auto 18px;
+  color: #f4e8d5;
 }
+
+.blessings-note .botanical-rule {
+  margin: 18px auto 24px;
+}
+
+.blessings-text {
+  max-width: 390px;
+  margin: 0 auto;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.8;
+  font-style: italic;
+  font-weight: 600;
+  color: #e4d5c2;
+}
+
+.blessings-note .eyebrow {
+  color: #c9a978;
+}
+
+
+  
 
 .blessings-note h2 {
   max-width: 340px;
