@@ -241,7 +241,78 @@ function MusicPlayer({ active }: { active: boolean }) {
     </div>
   );
 }
+function WeddingTimeline() {
+  const events = [
+    {
+      date: "22",
+      month: "OCTOBER",
+      title: "Bride's Reception",
+      time: "3:00 PM",
+      detail: "At Our Residence",
+      side: "left",
+    },
+    {
+      date: "23",
+      month: "OCTOBER",
+      title: "Mullappoo Kalyanam",
+      time: "Celebration",
+      detail: "A beautiful tradition before the wedding",
+      side: "right",
+    },
+    {
+      date: "24",
+      month: "OCTOBER",
+      title: "The Wedding",
+      time: "Muhurtham · 12:10 – 12:50 PM",
+      detail: "Cascadia Resort · Family & Friends",
+      side: "left",
+    },
+    {
+      date: "25",
+      month: "OCTOBER",
+      title: "Groom's Reception",
+      time: "Reception",
+      detail: "A celebration with loved ones",
+      side: "right",
+    },
+  ];
 
+  return (
+    <section className="section wedding-timeline">
+      <div className="timeline-heading">
+        <p className="eyebrow">Four days · One beautiful beginning</p>
+        <h2>Our wedding days</h2>
+        <BotanicalRule />
+        <p className="timeline-intro">
+          From the first celebration to the moment we say “I do,”
+          we would love to have you with us through every chapter.
+        </p>
+      </div>
+
+      <div className="timeline">
+        <div className="timeline-line" aria-hidden="true" />
+
+        {events.map((event, index) => (
+          <div
+            className={`timeline-event timeline-event-${event.side}`}
+            key={`${event.date}-${event.title}`}
+          >
+            <div className="timeline-marker">
+              <span>{event.date}</span>
+            </div>
+
+            <div className="timeline-card">
+              <span className="timeline-month">{event.month}</span>
+              <h3>{event.title}</h3>
+              <p className="timeline-time">{event.time}</p>
+              <p className="timeline-detail">{event.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
 function Invitation() {
   const [opened, setOpened] = useState(false);
   const googleCalendar = useMemo(() => {
@@ -270,8 +341,9 @@ function Invitation() {
           <div className="parents"><p><strong>Mr. & Mrs. Radhakrishnan</strong><small>Radhakrishnan & Chandrika<br />Melekoyiloth, Kottaramukk, Balussery</small></p><span>&</span><p><strong>Mr. & Mrs. Raveendran</strong><small>Raveendran & Vilasini<br />Sini Nivas, Punnad, Iritty</small></p></div>
           <p className="announcement">In the presence of God, we joyfully announce the wedding of our children</p>
           <div className="couple-names"><span>Amrutha</span><em>&</em><span>Sachin</span></div>
-          <p className="ceremony-time">Wedding ceremony at Cascadia Resort<br /><strong>12:00 · Saturday | 24 | October 2026</strong></p>
-        </section>
+               </section>
+
+        <WeddingTimeline />
 
         <section className="section gallery">
           <p className="eyebrow">A little of our story</p><h2>Us, in quiet moments</h2>
@@ -288,7 +360,7 @@ function Invitation() {
           <section className="section reception">
             <p className="eyebrow">Reception info</p><h2>Come celebrate with us</h2>
             <div className="reception-date"><span>Thursday</span><strong>22</strong><span>October<br />2026</span></div>
-            <p className="reception-time">from <strong>16:28</strong></p><Countdown />
+            <p className="reception-time">from <strong>3:00 pm at Our Residence</strong></p><Countdown />
           </section>
 
           <section className="section calendar-section">
@@ -302,8 +374,8 @@ function Invitation() {
         <section className="section venue">
           <p className="eyebrow">Wedding reception venue</p><h2>Kottaramukk</h2>
           <img className="venue-house" loading="lazy" src={house} alt="Watercolour illustration of the wedding venue" />
-          <div className="venue-details"><MapPin aria-hidden="true" /><div><strong>Cascadia Resort</strong><span>Kottaramukk, Kerala, India</span></div></div>
-          <Button asChild variant="outline" className="outline-button"><a href="https://maps.app.goo.gl/fZwY1PsJYPZ5okdd8" target="_blank" rel="noreferrer"><MapPin />Get directions</a></Button>
+          <div className="venue-details"><MapPin aria-hidden="true" /><div><strong>At my Residence</strong><span>Kottaramukk, Kerala, India</span></div></div>
+          <Button asChild variant="outline" className="outline-button"><a href="https://maps.app.goo.gl/ja1bNUAQe6F4ndjTA" target="_blank" rel="noreferrer"><MapPin />Get directions</a></Button>
         </section>
 
         <Guestbook />

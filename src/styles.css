@@ -558,6 +558,334 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
 .music-player button:hover { background: var(--paper-deep); }
 .rsvp-dialog { border-color: color-mix(in oklab, var(--antique-gold) 45%, var(--border)); background: var(--parchment); color: var(--foreground); box-shadow: 0 24px 70px oklch(0.29 0.02 55 / 28%); }
 .rsvp-dialog button[data-radix-dialog-close] { background: var(--paper-deep); color: var(--foreground); }
+/* ─────────────────────────────
+   WEDDING TIMELINE
+───────────────────────────── */
+
+.wedding-timeline {
+  position: relative;
+  overflow: hidden;
+  padding-top: 72px;
+  padding-bottom: 78px;
+}
+
+.timeline-heading {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 420px;
+  margin: 0 auto 54px;
+}
+
+.timeline-heading h2 {
+  margin: 8px 0 16px;
+}
+
+.timeline-heading .botanical-rule {
+  margin: 18px auto 20px;
+}
+
+.timeline-intro {
+  max-width: 350px;
+  margin: 0 auto;
+  color: color-mix(in oklab, var(--ink) 68%, transparent);
+  font-size: 13px;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+/* Main timeline */
+
+.timeline {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8px 0 10px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in oklab, var(--antique-gold) 70%, transparent) 8%,
+    color-mix(in oklab, var(--antique-gold) 70%, transparent) 92%,
+    transparent
+  );
+}
+
+/* Each event */
+
+.timeline-event {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 145px;
+  margin-bottom: 18px;
+}
+
+.timeline-event:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-event-left {
+  justify-content: flex-start;
+  padding-right: 50%;
+}
+
+.timeline-event-right {
+  justify-content: flex-end;
+  padding-left: 50%;
+}
+
+/* Date circle */
+
+.timeline-marker {
+  position: absolute;
+  z-index: 3;
+  top: 18px;
+  left: 50%;
+  width: 58px;
+  height: 58px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in oklab, var(--antique-gold) 75%, var(--border));
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--paper) 92%, white);
+  box-shadow:
+    0 0 0 7px color-mix(in oklab, var(--paper) 72%, transparent),
+    0 5px 18px oklch(0.29 0.02 55 / 9%);
+}
+
+.timeline-marker::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid color-mix(in oklab, var(--antique-gold) 30%, transparent);
+  border-radius: 50%;
+}
+
+.timeline-marker span {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-serif);
+  font-size: 19px;
+  color: var(--foreground);      
+}
+
+/* Event cards */
+
+.timeline-card {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 28px);
+  padding: 20px 22px 21px;
+  border: 1px solid color-mix(in oklab, var(--antique-gold) 30%, var(--border));
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, white 34%, transparent),
+      transparent
+    ),
+    color-mix(in oklab, var(--paper) 94%, white);
+  box-shadow: 0 10px 28px oklch(0.29 0.02 55 / 7%);
+}
+
+/* Different shapes make it feel editorial rather than repetitive */
+
+.timeline-event-left .timeline-card {
+  margin-right: 28px;
+  border-radius: 2px 20px 20px 20px;
+  text-align: right;
+}
+
+.timeline-event-right .timeline-card {
+  margin-left: 28px;
+  border-radius: 20px 2px 20px 20px;
+  text-align: left;
+}
+
+.timeline-month {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: color-mix(in oklab, var(--antique-gold) 90%, var(--foreground));
+}
+
+.timeline-card h3 {
+  margin: 0 0 7px;
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.timeline-time {
+  margin: 0 0 5px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+   color: var(--foreground); ;
+}
+
+.timeline-detail {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.55;
+  color: color-mix(in oklab, var(--foreground) 63%, transparent);
+}
+
+/* Small gold connector from card toward date */
+
+.timeline-event-left .timeline-card::after,
+.timeline-event-right .timeline-card::after {
+  content: "";
+  position: absolute;
+  top: 46px;
+  width: 28px;
+  height: 1px;
+  background: color-mix(in oklab, var(--antique-gold) 55%, transparent);
+}
+
+.timeline-event-left .timeline-card::after {
+  right: -28px;
+}
+
+.timeline-event-right .timeline-card::after {
+  left: -28px;
+}
+
+/* Highlight the actual wedding day */
+
+.timeline-event:nth-child(4) .timeline-marker {
+  width: 68px;
+  height: 68px;
+  border-width: 1.5px;
+  background: color-mix(in oklab, var(--antique-gold) 12%, var(--paper));
+  box-shadow:
+    0 0 0 8px color-mix(in oklab, var(--paper) 72%, transparent),
+    0 7px 22px oklch(0.29 0.02 55 / 12%);
+}
+
+.timeline-event:nth-child(4) .timeline-marker span {
+  font-size: 21px;
+}
+
+.timeline-event:nth-child(4) .timeline-card {
+  border-color: color-mix(in oklab, var(--antique-gold) 55%, var(--border));
+}
+
+.timeline-event:nth-child(4) .timeline-card h3 {
+  font-size: 23px;
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .wedding-timeline {
+    padding-top: 58px;
+    padding-bottom: 64px;
+  }
+
+  .timeline-heading {
+    margin-bottom: 42px;
+  }
+
+  .timeline {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .timeline-event {
+    min-height: 138px;
+  }
+
+  .timeline-event-left {
+    padding-right: 46%;
+  }
+
+  .timeline-event-right {
+    padding-left: 46%;
+  }
+
+  .timeline-marker {
+    width: 52px;
+    height: 52px;
+  }
+
+  .timeline-marker span {
+    font-size: 17px;
+  }
+
+  .timeline-card {
+    width: calc(100% - 20px);
+    padding: 17px 18px 18px;
+  }
+
+  .timeline-event-left .timeline-card {
+    margin-right: 20px;
+  }
+
+  .timeline-event-right .timeline-card {
+    margin-left: 20px;
+  }
+
+  .timeline-event-left .timeline-card::after,
+  .timeline-event-right .timeline-card::after {
+    width: 20px;
+  }
+
+  .timeline-event-left .timeline-card::after {
+    right: -20px;
+  }
+
+  .timeline-event-right .timeline-card::after {
+    left: -20px;
+  }
+
+  .timeline-card h3 {
+    font-size: 18px;
+  }
+
+  .timeline-event:nth-child(4) .timeline-card h3 {
+    font-size: 20px;
+  }
+
+  .timeline-detail {
+    font-size: 10px;
+  }
+}
+/* Highlight 22 October — Bride's Reception */
+
+.timeline-event:nth-child(2) .timeline-marker {
+  width: 68px;
+  height: 68px;
+  border-width: 1.5px;
+  background: color-mix(in oklab, var(--antique-gold) 12%, var(--paper));
+  box-shadow:
+    0 0 0 8px color-mix(in oklab, var(--paper) 72%, transparent),
+    0 7px 22px oklch(0.29 0.02 55 / 12%);
+}
+
+.timeline-event:nth-child(2) .timeline-marker span {
+  font-size: 21px;
+}
+
+.timeline-event:nth-child(2) .timeline-card {
+  border-color: color-mix(in oklab, var(--antique-gold) 55%, var(--border));
+}
+
+.timeline-event:nth-child(2) .timeline-card h3 {
+  font-size: 23px;
+}
 @media (max-height: 620px) { .opening-card { height: calc(100dvh - 20px); padding-block: 20px; }.opening-card h1 { font-size: 40px; }.opening-card .botanical-rule { margin-block: 10px; }.opening-card .eyebrow { margin-bottom: 10px; }.polaroid-compact { width: 105px !important; } }
 @media (min-width: 640px) { .app-shell { padding-block: 34px; }.invitation { max-width: 570px; border: 1px solid color-mix(in oklab, var(--antique-gold) 42%, var(--border)); }.invitation::before { inset: 9px; }.section { padding-inline: 54px; }.polaroid { width: min(82%, 390px); } }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
