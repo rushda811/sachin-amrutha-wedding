@@ -433,6 +433,7 @@ function DressCode() {
 }
 function Invitation() {
   const [opened, setOpened] = useState(false);
+const [galleryOpen, setGalleryOpen] = useState(false);
     useEffect(() => {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
@@ -572,19 +573,53 @@ function Invitation() {
         />
       </div>
 
-      <div className="collage-photo">
+      <button
+        type="button"
+        className="collage-photo collage-more"
+        onClick={() => setGalleryOpen(true)}
+        aria-label="View all wedding photos"
+      >
         <img
           loading="lazy"
           src={walk}
           alt="The couple walking through a wildflower meadow"
         />
 
-        <div className="collage-overlay">
+        <span className="collage-overlay">
           + 3
-        </div>
-      </div>
+        </span>
+      </button>
     </div>
   </div>
+
+  {galleryOpen && (
+    <div
+      className="gallery-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Wedding photo gallery"
+    >
+      <button
+        type="button"
+        className="gallery-close"
+        onClick={() => setGalleryOpen(false)}
+        aria-label="Close gallery"
+      >
+        ×
+      </button>
+
+      <div className="gallery-lightbox-grid">
+        <img src={gardenWalk} alt="The couple walking together beside a heritage garden" />
+        <img src={bouquet} alt="An ivory bridal bouquet and heirloom jewellery" />
+        <img src={laughter} alt="The couple sharing a quiet moment beneath garden trees" />
+        <img src={detail} alt="Handcrafted wedding details with flowers" />
+        <img src={walk} alt="The couple walking through a wildflower meadow" />
+        <img src={stationery} alt="Ivory wedding stationery with dried botanicals" />
+        <img src={portrait} alt="Amrutha and Sachin together" />
+        <img src={estate} alt="The newlyweds walking toward a countryside estate" />
+      </div>
+    </div>
+  )}
 </section>
 
         <div className="celebration-card stationery-card">
