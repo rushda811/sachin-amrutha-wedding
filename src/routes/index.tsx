@@ -5,7 +5,6 @@ import {
   Check,
   Instagram,
   MapPin,
-  Music2,
   Pause,
   Play,
   Send,
@@ -50,41 +49,6 @@ const calendarDays = [
 ];
 
 type Wish = { name: string; message: string };
-
-const galleryPhotos = [
-  {
-    src: gardenWalk,
-    alt: "The couple walking together beside a heritage garden",
-  },
-  {
-    src: bouquet,
-    alt: "An ivory bridal bouquet and heirloom jewellery",
-  },
-  {
-    src: laughter,
-    alt: "The couple sharing a quiet moment beneath garden trees",
-  },
-  {
-    src: detail,
-    alt: "Handcrafted wedding details with flowers",
-  },
-  {
-    src: walk,
-    alt: "The couple walking through a wildflower meadow",
-  },
-  {
-    src: stationery,
-    alt: "Ivory wedding stationery with dried botanicals",
-  },
-  {
-    src: portrait,
-    alt: "Amrutha and Sachin together",
-  },
-  {
-    src: estate,
-    alt: "The newlyweds walking toward a countryside estate",
-  },
-];
 
 function BotanicalRule() {
   return (
@@ -539,61 +503,6 @@ function Invitation() {
       window.removeEventListener("keydown", stopAutoScroll);
     };
   }, [opened]);
-
-    let animationFrame: number;
-    let startTimer: number;
-    let stopped = false;
-
-    const scrollSpeed = 18;
-    let lastTime = performance.now();
-
-    const autoScroll = (currentTime: number) => {
-      if (stopped) return;
-
-      const delta = currentTime - lastTime;
-      lastTime = currentTime;
-
-      window.scrollBy(0, (scrollSpeed * delta) / 1000);
-
-      const reachedBottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 2;
-
-      if (!reachedBottom) {
-        animationFrame = requestAnimationFrame(autoScroll);
-      }
-    };
-
-    const stopAutoScroll = () => {
-      stopped = true;
-      cancelAnimationFrame(animationFrame);
-      window.clearTimeout(startTimer);
-    };
-
-    window.addEventListener("wheel", stopAutoScroll, { passive: true });
-    window.addEventListener("touchstart", stopAutoScroll, { passive: true });
-    window.addEventListener("touchmove", stopAutoScroll, { passive: true });
-    window.addEventListener("keydown", stopAutoScroll);
-
-    startTimer = window.setTimeout(() => {
-      if (stopped) return;
-
-      lastTime = performance.now();
-      animationFrame = requestAnimationFrame(autoScroll);
-    }, 500);
-
-    return () => {
-      stopped = true;
-      window.clearTimeout(startTimer);
-      cancelAnimationFrame(animationFrame);
-
-      window.removeEventListener("wheel", stopAutoScroll);
-      window.removeEventListener("touchstart", stopAutoScroll);
-      window.removeEventListener("touchmove", stopAutoScroll);
-      window.removeEventListener("keydown", stopAutoScroll);
-    };
-  }, [opened]);
-
   const googleCalendar = useMemo(() => {
     const query = new URLSearchParams({ action: "TEMPLATE", text: "Amrutha & Sachin’s Wedding Reception", dates: "20261022T105800Z/20261022T135800Z", details: "Join us as we celebrate Amrutha and Sachin.", location: "Kottaramukk, Kerala, India" });
     return `https://calendar.google.com/calendar/render?${query}`;
@@ -625,70 +534,58 @@ function Invitation() {
 
         <WeddingTimeline />
 <DressCode />
-        <section className="section gallery">
-          <p className="eyebrow">A little of our story</p><h2>Us, in quiet moments</h2>
-<div className="photo-collage">
-  <div className="collage-photo collage-photo-1">
-    <img
-      loading="lazy"
-      src={galleryPhotos[0].src}
-      alt={galleryPhotos[0].alt}
-    />
-  </div>
+      <section className="section gallery">
+  <p className="eyebrow">A little of our story</p>
+  <h2>Us, in quiet moments</h2>
 
-  <div className="collage-photo collage-photo-2">
-    <img
-      loading="lazy"
-      src={galleryPhotos[1].src}
-      alt={galleryPhotos[1].alt}
-    />
-  </div>
-
-  <div className="collage-photo collage-photo-3">
-    <img
-      loading="lazy"
-      src={galleryPhotos[2].src}
-      alt={galleryPhotos[2].alt}
-    />
-  </div>
-
-  <div className="collage-bottom">
-    <div className="collage-photo">
+  <div className="photo-collage">
+    <div className="collage-photo collage-photo-1">
       <img
         loading="lazy"
-        src={galleryPhotos[3].src}
-        alt={galleryPhotos[3].alt}
+        src={gardenWalk}
+        alt="The couple walking together beside a heritage garden"
       />
     </div>
 
-    <div className="collage-photo">
+    <div className="collage-photo collage-photo-2">
       <img
         loading="lazy"
-        src={galleryPhotos[4].src}
-        alt={galleryPhotos[4].alt}
+        src={bouquet}
+        alt="An ivory bridal bouquet and heirloom jewellery"
       />
+    </div>
 
-      <div className="collage-overlay">
-        + {galleryPhotos.length - 5}
+    <div className="collage-photo collage-photo-3">
+      <img
+        loading="lazy"
+        src={laughter}
+        alt="The couple sharing a quiet moment beneath garden trees"
+      />
+    </div>
+
+    <div className="collage-bottom">
+      <div className="collage-photo">
+        <img
+          loading="lazy"
+          src={detail}
+          alt="Handcrafted wedding details with flowers"
+        />
+      </div>
+
+      <div className="collage-photo">
+        <img
+          loading="lazy"
+          src={walk}
+          alt="The couple walking through a wildflower meadow"
+        />
+
+        <div className="collage-overlay">
+          + 3
+        </div>
       </div>
     </div>
   </div>
-</div>
-  
-
-
-  
-  
-
-  <div className="gallery-column">
-    {galleryPhotos.filter((_, index) => index % 2 !== 0).map((photo) => (
-      <figure key={photo.src}>
-        <img loading="lazy" src={photo.src} alt={photo.alt} />
-      </figure>
-    ))}
-  </div>
-</div>
-        </section>
+</section>
 
         <div className="celebration-card stationery-card">
           <img className="card-botanical celebration-botanical" src={leaf} alt="" />
