@@ -717,25 +717,43 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
 
 /* Event cards */
 .blessings-note {
+  position: relative;
   margin: 40px 18px;
   padding: 70px 28px;
   text-align: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.blessings-note::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
   border: 1px solid color-mix(
     in oklab,
     var(--antique-gold) 45%,
     transparent
   );
+
   border-radius: 2px 28px 2px 28px;
-  background:
-    radial-gradient(
-      circle at 50% 0%,
-      color-mix(in oklab, #8a6a4a 22%, transparent),
-      transparent 55%
-    ),
-    #403229;
+
+  background: #403229;
+
   box-shadow:
     0 18px 45px oklch(0.2 0.02 55 / 18%),
-    inset 0 1px 0 color-mix(in oklab, white 8%, transparent);
+    inset 0 1px 0 color-mix(
+      in oklab,
+      white 8%,
+      transparent
+    );
+}
+
+.blessings-note > * {
+  position: relative;
+  z-index: 1;
 }
 .blessings-note::before {
   content: "";
@@ -1082,13 +1100,14 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
   justify-content: center;
   gap: 7px;
   color: #5a3d2b;
+    font-weight: 700;
   text-decoration: none;
 }
 
 .brand-link strong {
   font-family: var(--font-serif);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.22em;
 }
 @media (max-height: 620px) { .opening-card { height: calc(100dvh - 20px); padding-block: 20px; }.opening-card h1 { font-size: 40px; }.opening-card .botanical-rule { margin-block: 10px; }.opening-card .eyebrow { margin-bottom: 10px; }.polaroid-compact { width: 105px !important; } }
