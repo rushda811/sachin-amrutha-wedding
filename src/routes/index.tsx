@@ -13,14 +13,14 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import portrait from "@/assets/amrutha-sachin-cover.jpg";
-import detail from "@/assets/wedding-detail.jpg";
-import walk from "@/assets/countryside-walk.jpg";
-import gardenWalk from "@/assets/gallery-garden-walk.jpg";
-import bouquet from "@/assets/gallery-bouquet.jpg";
-import laughter from "@/assets/gallery-laughter.jpg";
-import stationery from "@/assets/gallery-stationery.jpg";
-import estate from "@/assets/gallery-estate.jpg";
+import portrait from "@/assets/amrutha-sachin-cover.jpeg";
+import detail from "@/assets/wedding-detail.jpeg";
+import walk from "@/assets/countryside-walk.jpeg";
+import gardenWalk from "@/assets/gallery-garden-walk.jpeg";
+import bouquet from "@/assets/gallery-bouquet.jpeg";
+import laughter from "@/assets/gallery-laughter.jpeg";
+import stationery from "@/assets/gallery-stationery.jpeg";
+import estate from "@/assets/gallery-estate.jpeg";
 import paper from "@/assets/paper.webp";
 import frame from "@/assets/frame-avatar.webp";
 import house from "@/assets/house-background.webp";
@@ -84,10 +84,11 @@ function PhotoFrame({ compact = false }: { compact?: boolean }) {
 
 function Opening({ onOpen }: { onOpen: () => void }) {
   const [celebrating, setCelebrating] = useState(false);
-  const beginOpening = () => {
-    if (celebrating) return;
-    setCelebrating(true);
-    window.setTimeout(onOpen, 1400);  };
+const beginOpening = () => {
+  if (celebrating) return;
+  setCelebrating(true);
+  window.setTimeout(onOpen, 520);
+};
   return (
     <div className={celebrating ? "opening is-celebrating" : "opening"} aria-label="Wedding invitation cover">
 <div className="petals" aria-hidden="true">
@@ -98,7 +99,7 @@ function Opening({ onOpen }: { onOpen: () => void }) {
         {
           "--i": index,
           "--delay": `${(index * 0.37) % 6}s`,
-          "--duration": `${6 + ((index * 1.13) % 5)}s`,
+          "--duration": `${11 + ((index * 1.13) % 7)}s`,
           "--left": `${(index * 37) % 108 - 4}%`,
           "--size": `${10 + ((index * 7) % 9)}px`,
           "--rotate": `${(index * 47) % 360}deg`,
@@ -271,7 +272,7 @@ function Invitation() {
             <p className="eyebrow">Save our date</p><h2>October 2026</h2>
             <div className="calendar"><div className="weekdays">{"SMTWTFS".split("").map((day, i) => <span key={`${day}-${i}`}>{day}</span>)}</div><div className="dates">{calendarDays.map((day, index) => <span className={day === 22 ? "chosen" : ""} key={`${day}-${index}`}>{day === 22 && <svg viewBox="0 0 48 44" aria-hidden="true"><path d="M24 40C17 34 5 25 5 14.5 5 7 14 3 20 8l4 4 4-4c6-5 15-1 15 6.5C43 25 31 34 24 40Z" /></svg>}<b>{day}</b></span>)}</div></div>
             <Button asChild variant="outline" className="outline-button"><a href={googleCalendar} target="_blank" rel="noreferrer"><CalendarPlus />Add to calendar</a></Button>
-            <Dialog><DialogTrigger asChild><Button className="ink-button">Confirm attendance</Button></DialogTrigger><DialogContent className="rsvp-dialog"><DialogHeader><p className="eyebrow">Kindly reply</p><DialogTitle>Will you join us?</DialogTitle><DialogDescription>Please let us know who will be celebrating with us.</DialogDescription></DialogHeader><RsvpForm /></DialogContent></Dialog>
+            
           </section>
         </div>
 
@@ -279,8 +280,7 @@ function Invitation() {
           <p className="eyebrow">Wedding reception venue</p><h2>Kottaramukk</h2>
           <img className="venue-house" loading="lazy" src={house} alt="Watercolour illustration of the wedding venue" />
           <div className="venue-details"><MapPin aria-hidden="true" /><div><strong>Cascadia Resort</strong><span>Kottaramukk, Kerala, India</span></div></div>
-          <div className="map-frame"><iframe title="Map of Cascadia Resort, Kottaramukk" src="https://www.google.com/maps?q=Cascadia%20Resort%2C%20Kottaramukk%2C%20Kerala%2C%20India&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div>
-          <Button asChild variant="outline" className="outline-button"><a href="https://www.google.com/maps/search/?api=1&query=Kottaramukk%2C%20Kerala%2C%20India" target="_blank" rel="noreferrer"><MapPin />Get directions</a></Button>
+          <Button asChild variant="outline" className="outline-button"><a href="https://maps.app.goo.gl/fZwY1PsJYPZ5okdd8" target="_blank" rel="noreferrer"><MapPin />Get directions</a></Button>
         </section>
 
         <Guestbook />

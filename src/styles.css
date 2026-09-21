@@ -324,8 +324,13 @@ footer h2 { font-family: var(--font-script); font-weight: 400; letter-spacing: 0
 .couple-names { font-size: 66px; line-height: .72; }
 footer h2 { font-size: 52px; line-height: .85; }
 .opening.is-celebrating .opening-card { animation: opening-glide .52s cubic-bezier(.4,0,.2,1) both; }
-.opening.is-celebrating .opening-leaf { animation: botanical-bloom-left .52s ease-out both; }
-.opening.is-celebrating .opening-flower { animation: botanical-bloom-right .52s ease-out both; }
+.opening.is-celebrating .opening-leaf {
+  animation: botanical-bloom-left .9s ease-out both;
+}
+
+.opening.is-celebrating .opening-flower {
+  animation: botanical-bloom-right .9s ease-out both;
+}
 .celebration-burst { position: absolute; z-index: 10; top: 50%; left: 50%; width: 1px; height: 1px; pointer-events: none; }
 .celebration-burst i { position: absolute; width: 5px; height: 11px; border-radius: 70% 15% 70% 15%; background: var(--antique-gold); opacity: 0; transform-origin: 50% 110px; }
 .celebration-burst i:nth-child(3n+1) { width: 3px; height: 8px; background: var(--gold-light); }
@@ -421,12 +426,43 @@ footer h2 { font-size: 52px; line-height: .85; }
 .hero { min-height: 100vh; padding-top: 100px; background: var(--paper-deep); }.hero h1 em { display: block; margin: 9px; font-size: 28px; }.hero-leaf { position: absolute; z-index: 3; width: 150px; right: -65px; top: 250px; opacity: .32; transform: rotate(-15deg); }
 .hero-portrait { position: relative; isolation: isolate; margin-inline: -34px; padding: 4px 34px 20px; }
 .hero-portrait .polaroid { z-index: 2; }
-.hero-house { position: absolute; z-index: -1; width: 116%; max-width: none; left: -8%; bottom: -48px; opacity: .19; }
+.hero-house { position: absolute; z-index: -1; width: 116%; max-width: none; left: -8%; bottom: -75px; opacity: .19; }
 .hero-flower { position: absolute; z-index: 4; width: 112px; left: 7px; bottom: 18%; opacity: .82; transform: rotate(-13deg); filter: drop-shadow(0 5px 5px oklch(0.29 0.02 55 / 12%)); pointer-events: none; }
 .event-date { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 0; text-transform: uppercase; }.event-date span { width: 74px; font-size: 10px; letter-spacing: .12em; }.event-date strong { font-size: 54px; font-weight: 400; line-height: 1; }
 .stationery-card { position: relative; isolation: isolate; margin: 0 16px; border: 1px solid color-mix(in oklab, var(--antique-gold) 48%, transparent); background-color: var(--parchment); box-shadow: 0 16px 34px oklch(0.255 0.022 53 / 16%), inset 0 0 0 4px var(--parchment), inset 0 0 0 5px color-mix(in oklab, var(--gold-light) 35%, transparent), inset 0 0 38px oklch(0.43 0.025 56 / 5%); }
-.ceremony { padding-block: 78px; }.ceremony h2 { font-size: 43px; }.parents p { margin: 0; }.parents strong { display: block; font: 500 25px var(--font-serif); }.parents small { display: block; margin-top: 7px; font: 11px/1.75 var(--font-sans); color: var(--ink-soft); }.parents > span { display: block; margin: 20px; font: italic 28px var(--font-serif); }.announcement { max-width: 330px; margin: 42px auto 20px; font-size: 10px; font-weight: 600; line-height: 1.9; letter-spacing: .12em; text-transform: uppercase; }.couple-names { display: flex; flex-direction: column; font-size: 53px; line-height: .8; }.couple-names em { margin: 17px; font-size: 24px; color: var(--ink-soft); }.ceremony-time { margin: 44px auto 0; font: 15px/1.75 var(--font-serif); text-transform: none; }.ceremony-time strong { font: 600 10px var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }.card-botanical { position: absolute; z-index: -1; width: 105px; opacity: .22; pointer-events: none; }.card-botanical-left { left: -28px; bottom: 20px; transform: rotate(12deg); }.card-botanical-right { right: -30px; top: 24px; transform: rotate(-18deg) scaleX(-1); }
-.gallery { padding-inline: 18px; }.photo-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-flow: dense; gap: 10px; align-items: stretch; }.photo-grid figure { position: relative; min-height: 180px; margin: 0; overflow: hidden; border-radius: 4px; box-shadow: 0 8px 20px oklch(0.255 0.022 53 / 15%); }.photo-grid figure.portrait { aspect-ratio: 3/4; }.photo-grid figure.square { aspect-ratio: 1; }.photo-grid figure.landscape { grid-column: 1/-1; aspect-ratio: 3/2; }.photo-grid figure.wide { min-height: 230px; }.photo-grid figure img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }.photo-grid figure:hover img { transform: scale(1.025); }
+.ceremony { padding-block: 78px; }.ceremony h2 { font-size: 43px; }.parents p { margin: 0; }.parents strong { display: block; font: 500 25px var(--font-serif); }.parents small { display: block; margin-top: 7px; font: 11px/1.75 var(--font-sans); color: var(--ink-soft); }.parents > span { display: block; margin: 20px; font: italic 28px var(--font-serif); }.announcement { max-width: 330px; margin: 42px auto 20px; font-size: 10px; font-weight: 600; line-height: 1.9; letter-spacing: .12em; text-transform: uppercase; }.couple-names { display: flex; flex-direction: column; font-size: 53px; line-height: .8; }.couple-names em { margin: 17px; font-size: 24px; color: var(--ink-soft); }.ceremony-time { margin: 44px auto 0; font: 15px/1.75 var(--font-serif); text-transform: none; }.ceremony-time strong { font: 600 10px var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }.card-botanical { position: absolute; z-index: -1; width: 105px; opacity: .55; pointer-events: none; }.card-botanical-left { left: -28px; bottom: 20px; transform: rotate(12deg); }.card-botanical-right { right: -30px; top: 24px; transform: rotate(-18deg) scaleX(-1); }
+.gallery {
+  padding-inline: 18px;
+  overflow: hidden;
+}.photo-grid {
+  display: grid;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  gap: 10px;
+  align-items: stretch;
+}
+.photo-grid figure {
+  position: relative;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 180px;
+  margin: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 8px 20px oklch(0.255 0.022 53 / 15%);
+}
+.photo-grid figure.portrait { aspect-ratio: 3/4; }.photo-grid figure.square { aspect-ratio: 1; }.photo-grid figure.landscape { grid-column: 1/-1; aspect-ratio: 3/2; }.photo-grid figure.wide { min-height: 230px; }..photo-grid figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photo-grid figure:hover img { transform: scale(1.025); }
 .celebration-card { overflow: hidden; margin-top: 18px; }.celebration-botanical { z-index: 0; top: 26px; right: -28px; transform: rotate(-28deg); }.reception { background: transparent; padding-bottom: 60px; }.reception-date { display: flex; align-items: center; justify-content: center; gap: 14px; }.reception-date span { width: 72px; font-size: 10px; line-height: 1.6; letter-spacing: .13em; text-transform: uppercase; }.reception-date strong { font-size: 92px; font-weight: 400; line-height: 1; }.reception-time { margin: 22px 0 42px; font: italic 18px var(--font-serif); }.reception-time strong { font-size: 27px; }.countdown { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 6px; border: 0; padding: 12px 0; background: transparent; }.countdown div { position: relative; min-width: 0; padding: 18px 2px 15px; border: 1px solid color-mix(in oklab, var(--antique-gold) 66%, transparent); background: color-mix(in oklab, var(--paper) 68%, var(--parchment)); box-shadow: inset 0 0 0 3px var(--parchment), inset 0 0 0 4px color-mix(in oklab, var(--gold-light) 34%, transparent), 0 7px 14px oklch(0.255 0.022 53 / 9%); }.countdown div::after { position: absolute; left: 50%; bottom: -5px; width: 9px; height: 9px; border: 1px solid var(--antique-gold); background: var(--parchment); content: ""; transform: translateX(-50%) rotate(45deg); }.countdown div:last-child { border: 1px solid color-mix(in oklab, var(--antique-gold) 66%, transparent); }.countdown strong { display: block; overflow: hidden; color: var(--foreground); font-size: 31px; font-weight: 500; line-height: 1; }.countdown span { display: block; margin-top: 8px; overflow: hidden; font-size: 7px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 .calendar-section { padding-top: 58px; }.calendar { position: relative; max-width: 380px; margin: 0 auto 32px; padding: 20px 14px; border: 1px solid color-mix(in oklab, var(--antique-gold) 70%, transparent); background: color-mix(in oklab, var(--paper) 74%, var(--parchment)); box-shadow: inset 0 0 0 4px var(--parchment), inset 0 0 0 5px color-mix(in oklab, var(--gold-light) 38%, transparent), 0 12px 24px oklch(0.255 0.022 53 / 11%); }.calendar::before,.calendar::after { position: absolute; top: 9px; width: 38px; height: 1px; background: var(--antique-gold); content: ""; }.calendar::before { left: 14px; }.calendar::after { right: 14px; }.weekdays,.dates { display: grid; grid-template-columns: repeat(7,1fr); }.weekdays span { padding: 8px 0; font-size: 8px; color: var(--sage); }.dates span { position: relative; display: grid; aspect-ratio: 1; place-items: center; font: 15px var(--font-serif); }.dates span b { position: relative; z-index: 1; font-weight: 500; }.dates .chosen svg { position: absolute; width: 44px; height: 41px; overflow: visible; fill: none; stroke: var(--antique-gold); stroke-width: 1.7; filter: drop-shadow(0 1px 0 var(--gold-light)); }.dates .chosen::after { position: absolute; width: 34px; height: 34px; border: 1px solid color-mix(in oklab, var(--gold-light) 50%, transparent); border-radius: 50%; content: ""; }.outline-button { min-height: 44px; margin: 5px; border-radius: 999px; padding-inline: 22px; background: color-mix(in oklab, var(--paper) 60%, transparent); font-family: var(--font-sans); font-size: 10px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; box-shadow: 0 4px 12px oklch(0.29 0.02 55 / 8%); }.calendar-section .ink-button { display: flex; margin: 12px auto 0; }
 .venue { background: var(--paper-deep); }.venue-house { width: 115%; max-width: none; margin: -20px -7.5% -5px; }.venue-details { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 auto 22px; }.venue-details svg { width: 18px; }.venue-details strong,.venue-details span { display: block; text-align: left; }.venue-details strong { font: 20px var(--font-serif); }.venue-details span { margin-top: 4px; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }.map-frame { width: 100%; aspect-ratio: 4/3; margin: 22px 0; overflow: hidden; border: 7px solid var(--paper); border-radius: 4px; box-shadow: 0 9px 22px oklch(0.255 0.022 53 / 14%); }.map-frame iframe { width: 100%; height: 100%; border: 0; filter: sepia(.12) saturate(.78) contrast(.93); }
