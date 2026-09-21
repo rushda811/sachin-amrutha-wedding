@@ -1,0 +1,13 @@
+- [x] Build the complete mobile-first wedding invitation page.
+- [x] Integrate uploaded paper, Polaroid frame, venue, botanical, and music assets.
+- [x] Verify opening, audio, RSVP, guestbook, calendar, directions, and responsive layout.
+- [x] Refine button styling, opening backdrop, unified paper background, and hero composition.
+- [x] Verify the updated opening and hero at mobile and desktop sizes.
+- [x] Refine the luxury palette, organic petals, stationery sections, editorial gallery, calendar, venue map, and guestbook.
+- [x] Verify the comprehensive refinement at mobile and desktop sizes.
+- [x] Add the antique-gold invitation frame and replace remaining cool pale surfaces with warm paper tones.
+- [x] Verify the gold frame and warm surfaces at mobile and desktop sizes.
+- [x] Widen the invitation and add royal script typography, opening flourish, gilded plaques, and botanical watermarks.
+- [x] Verify the royal refinement at mobile and desktop sizes.
+- [ ] Restyle the calendar, extend the OPEN sequence, and add complete postal addresses.
+- [ ] Verify the updated timing, links, calendar contrast, and responsive layout.
