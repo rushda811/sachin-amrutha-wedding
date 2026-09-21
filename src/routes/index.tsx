@@ -21,25 +21,25 @@ import bouquet from "@/assets/gallery-bouquet.jpg";
 import laughter from "@/assets/gallery-laughter.jpg";
 import stationery from "@/assets/gallery-stationery.jpg";
 import estate from "@/assets/gallery-estate.jpg";
-import paper from "@/assets/paper.webp.asset.json";
-import frame from "@/assets/frame-avatar.webp.asset.json";
-import house from "@/assets/house-background.webp.asset.json";
-import flower from "@/assets/flower.webp.asset.json";
-import leaf from "@/assets/leaf-background.webp.asset.json";
-import music from "@/assets/yt-915f7a0b-a1c.mp3.asset.json";
+import paper from "@/assets/paper.webp";
+import frame from "@/assets/frame-avatar.webp";
+import house from "@/assets/house-background.webp";
+import flower from "@/assets/flower.webp";
+import leaf from "@/assets/leaf-background.webp";
+import music from "@/assets/yt-915f7a0b-a1c.mp3";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Amrutha & Sachin | Wedding Invitation" },
-      { name: "description", content: "Join Amrutha and Sachin for their wedding celebrations in October 2026." },
-      { property: "og:title", content: "Amrutha & Sachin | Wedding Invitation" },
-      { property: "og:description", content: "A celebration of love — 22 & 24 October 2026." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: Invitation,
+head: () => ({
+  meta: [
+    { title: "Amrutha & Sachin | Wedding Invitation" },
+    { name: "description", content: "Join Amrutha and Sachin for their wedding celebrations in October 2026." },
+    { property: "og:title", content: "Amrutha & Sachin | Wedding Invitation" },
+    { property: "og:description", content: "A celebration of love — 22 & 24 October 2026." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+  ],
+}),
+component: Invitation,
 });
 
 const eventDate = new Date("2026-10-22T16:28:00+05:30").getTime();
@@ -65,9 +65,9 @@ function BotanicalRule() {
   return (
     <div className="botanical-rule" aria-hidden="true">
       <span />
-      <img src={leaf.url} alt="" />
+      <img src={leaf} alt="" />
       <b>❦</b>
-      <img src={leaf.url} alt="" />
+      <img src={leaf} alt="" />
       <span />
     </div>
   );
@@ -77,7 +77,7 @@ function PhotoFrame({ compact = false }: { compact?: boolean }) {
   return (
     <div className={compact ? "polaroid polaroid-compact" : "polaroid"}>
       <img className="polaroid-photo" src={portrait} alt="Amrutha and Sachin together in a countryside garden" width={1024} height={1408} />
-      <img className="polaroid-overlay" src={frame.url} alt="" />
+      <img className="polaroid-overlay" src={frame} alt="" />
     </div>
   );
 }
@@ -98,8 +98,8 @@ function Opening({ onOpen }: { onOpen: () => void }) {
         {Array.from({ length: 24 }, (_, index) => <i key={index} style={{ "--i": index } as CSSProperties} />)}
       </div>
       <div className="opening-card">
-        <img className="opening-leaf opening-leaf-left" src={leaf.url} alt="" />
-        <img className="opening-flower" src={flower.url} alt="" />
+        <img className="opening-leaf opening-leaf-left" src={leaf} alt="" />
+        <img className="opening-flower" src={flower} alt="" />
         <p className="eyebrow">Together with their families</p>
         <h1>Amrutha <em>&</em> Sachin</h1>
         <BotanicalRule />
@@ -199,7 +199,7 @@ function MusicPlayer({ active }: { active: boolean }) {
   };
   return (
     <div className="music-player">
-      <audio ref={audio} src={music.url} loop />
+      <audio ref={audio} src={music} loop />
       <Button size="icon" variant="ghost" onClick={toggle} aria-label={playing ? "Pause music" : "Play music"}>{playing ? <Pause /> : <Play />}</Button>
       <div className={playing ? "wave is-playing" : "wave"} aria-hidden="true">{Array.from({ length: 4 }, (_, i) => <i key={i} />)}</div>
       <span>Our song</span>
@@ -217,20 +217,20 @@ function Invitation() {
     <main className="app-shell">
       <div className={opened ? "opening-wrap is-opened" : "opening-wrap"}>{!opened && <Opening onOpen={() => setOpened(true)} />}</div>
       <MusicPlayer active={opened} />
-      <article className="invitation" style={{ backgroundImage: `url(${paper.url})`, "--flower-art": `url(${flower.url})`, "--leaf-art": `url(${leaf.url})` } as CSSProperties}>
+      <article className="invitation" style={{ backgroundImage: `url(${paper})`, "--flower-art": `url(${flower})`, "--leaf-art": `url(${leaf})` } as CSSProperties}>
         <section className="hero section">
-          <img className="hero-leaf" src={leaf.url} alt="" />
+          <img className="hero-leaf" src={leaf} alt="" />
           <p className="eyebrow">The wedding of</p><h1>Amrutha <em>&</em> Sachin</h1>
           <div className="hero-portrait">
-            <img className="hero-house" src={house.url} alt="" />
-            <img className="hero-flower" src={flower.url} alt="" />
+            <img className="hero-house" src={house} alt="" />
+            <img className="hero-flower" src={flower} alt="" />
             <PhotoFrame />
           </div>
         </section>
 
         <section className="section ceremony stationery-card">
-          <img className="card-botanical card-botanical-left" src={flower.url} alt="" />
-          <img className="card-botanical card-botanical-right" src={leaf.url} alt="" />
+          <img className="card-botanical card-botanical-left" src={flower} alt="" />
+          <img className="card-botanical card-botanical-right" src={leaf} alt="" />
           <p className="eyebrow">Ceremony info</p><h2>With joyful hearts</h2><BotanicalRule />
           <div className="parents"><p><strong>Mr. & Mrs. Radhakrishnan</strong><small>Radhakrishnan & Chandrika<br />Melekoyiloth, Kottaramukk, Balussery</small></p><span>&</span><p><strong>Mr. & Mrs. Raveendran</strong><small>Raveendran & Vilasini<br />Sini Nivas, Punnad, Iritty</small></p></div>
           <p className="announcement">In the presence of God, we joyfully announce the wedding of our children</p>
@@ -246,7 +246,7 @@ function Invitation() {
         </section>
 
         <div className="celebration-card stationery-card">
-          <img className="card-botanical celebration-botanical" src={leaf.url} alt="" />
+          <img className="card-botanical celebration-botanical" src={leaf} alt="" />
           <section className="section reception">
             <p className="eyebrow">Reception info</p><h2>Come celebrate with us</h2>
             <div className="reception-date"><span>Thursday</span><strong>22</strong><span>October<br />2026</span></div>
@@ -263,14 +263,14 @@ function Invitation() {
 
         <section className="section venue">
           <p className="eyebrow">Wedding reception venue</p><h2>Kottaramukk</h2>
-          <img className="venue-house" loading="lazy" src={house.url} alt="Watercolour illustration of the wedding venue" />
+          <img className="venue-house" loading="lazy" src={house} alt="Watercolour illustration of the wedding venue" />
           <div className="venue-details"><MapPin aria-hidden="true" /><div><strong>Cascadia Resort</strong><span>Kottaramukk, Kerala, India</span></div></div>
           <div className="map-frame"><iframe title="Map of Cascadia Resort, Kottaramukk" src="https://www.google.com/maps?q=Cascadia%20Resort%2C%20Kottaramukk%2C%20Kerala%2C%20India&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div>
           <Button asChild variant="outline" className="outline-button"><a href="https://www.google.com/maps/search/?api=1&query=Kottaramukk%2C%20Kerala%2C%20India" target="_blank" rel="noreferrer"><MapPin />Get directions</a></Button>
         </section>
 
         <Guestbook />
-        <footer><img src={flower.url} alt="" /><p>Your presence would be the greatest gift<br />we could receive!</p><BotanicalRule /><h2>Amrutha <em>&</em> Sachin</h2><span>22 · 10 · 2026</span></footer>
+        <footer><img src={flower} alt="" /><p>Your presence would be the greatest gift<br />we could receive!</p><BotanicalRule /><h2>Amrutha <em>&</em> Sachin</h2><span>22 · 10 · 2026</span></footer>
       </article>
     </main>
   );
