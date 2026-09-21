@@ -103,7 +103,8 @@ function Opening({ onOpen }: { onOpen: () => void }) {
 const beginOpening = () => {
   if (celebrating) return;
   setCelebrating(true);
-  window.setTimeout(onOpen, 1100);};
+  onOpen();
+};
   return (
     <div className={celebrating ? "opening is-celebrating" : "opening"} aria-label="Wedding invitation cover">
 <div className="petals" aria-hidden="true">
