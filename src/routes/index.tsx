@@ -1,7 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent } from "react";
-import { CalendarPlus, Check, MapPin, Music2, Pause, Play, Send } from "lucide-react";
-
+import {
+  CalendarPlus,
+  Check,
+  Instagram,
+  MapPin,
+  Music2,
+  Pause,
+  Play,
+  Send,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -474,6 +482,20 @@ function Invitation() {
   </p>
 </section>
         <Guestbook />
+<div className="brand-signature">
+  <span>Crafted by</span>
+
+  <a
+    href="https://www.instagram.com/aurelle_vows/"
+    target="_blank"
+    rel="noreferrer"
+    className="brand-link"
+  >
+    <Instagram size={14} strokeWidth={1.5} />
+    <strong>AURELLE VOWS</strong>
+  </a>
+</div>
+
         <footer><img src={flower} alt="" /><p>Your presence would be the greatest gift<br />we could receive!</p><BotanicalRule /><h2>Amrutha <em>&</em> Sachin</h2><span>22 · 10 · 2026</span></footer>
       </article>
     </main>

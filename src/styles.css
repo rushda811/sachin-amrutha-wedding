@@ -717,16 +717,32 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
 
 /* Event cards */
 .blessings-note {
-  padding-top: 70px;
-  padding-bottom: 70px;
+  margin: 40px 18px;
+  padding: 70px 28px;
   text-align: center;
+  border: 1px solid color-mix(
+    in oklab,
+    var(--antique-gold) 45%,
+    transparent
+  );
+  border-radius: 2px 28px 2px 28px;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      color-mix(in oklab, #8a6a4a 22%, transparent),
+      transparent 55%
+    ),
+    #33271f;
+  box-shadow:
+    0 18px 45px oklch(0.2 0.02 55 / 18%),
+    inset 0 1px 0 color-mix(in oklab, white 8%, transparent);
 }
 
 .blessings-note h2 {
   max-width: 340px;
   margin: 10px auto 18px;
+  color: #f4e8d5;
 }
-
 .blessings-note .botanical-rule {
   margin: 18px auto 24px;
 }
@@ -738,11 +754,10 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
   font-size: 17px;
   line-height: 1.8;
   font-style: italic;
-  color: color-mix(
-    in oklab,
-    var(--foreground) 72%,
-    transparent
-  );
+  color: #d8c7b3;
+}
+.blessings-note .eyebrow {
+  color: #c9a978;
 }
 
 .timeline-card {
@@ -1041,6 +1056,35 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
   line-height: 1.7;
   text-transform: uppercase;
   color: var(--foreground);
+}
+.brand-signature {
+  padding: 20px 20px 30px;
+  text-align: center;
+}
+
+.brand-signature > span {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-serif);
+  font-size: 11px;
+  font-style: italic;
+  color: #7a5a46;
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #5a3d2b;
+  text-decoration: none;
+}
+
+.brand-link strong {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
 }
 @media (max-height: 620px) { .opening-card { height: calc(100dvh - 20px); padding-block: 20px; }.opening-card h1 { font-size: 40px; }.opening-card .botanical-rule { margin-block: 10px; }.opening-card .eyebrow { margin-bottom: 10px; }.polaroid-compact { width: 105px !important; } }
 @media (min-width: 640px) { .app-shell { padding-block: 34px; }.invitation { max-width: 570px; border: 1px solid color-mix(in oklab, var(--antique-gold) 42%, var(--border)); }.invitation::before { inset: 9px; }.section { padding-inline: 54px; }.polaroid { width: min(82%, 390px); } }
