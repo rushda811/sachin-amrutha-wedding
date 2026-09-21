@@ -732,7 +732,7 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
       color-mix(in oklab, #8a6a4a 22%, transparent),
       transparent 55%
     ),
-    #33271f;
+    #403229;
   box-shadow:
     0 18px 45px oklch(0.2 0.02 55 / 18%),
     inset 0 1px 0 color-mix(in oklab, white 8%, transparent);
@@ -754,7 +754,8 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
   font-size: 17px;
   line-height: 1.8;
   font-style: italic;
-  color: #d8c7b3;
+  font-weight: 600;
+  color: #e4d5c2;
 }
 .blessings-note .eyebrow {
   color: #c9a978;
