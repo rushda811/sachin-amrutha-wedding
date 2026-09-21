@@ -46,42 +46,34 @@ const galleryPhotos = [
   {
     src: gardenWalk,
     alt: "The couple walking together beside a heritage garden",
-    className: "portrait",
   },
   {
     src: bouquet,
     alt: "An ivory bridal bouquet and heirloom jewellery",
-    className: "small",
   },
   {
     src: laughter,
     alt: "The couple sharing a quiet moment beneath garden trees",
-    className: "wide",
   },
   {
     src: detail,
     alt: "Handcrafted wedding details with flowers",
-    className: "portrait",
   },
   {
     src: walk,
     alt: "The couple walking through a wildflower meadow",
-    className: "tall",
   },
   {
     src: stationery,
     alt: "Ivory wedding stationery with dried botanicals",
-    className: "small",
   },
   {
     src: portrait,
     alt: "Amrutha and Sachin together",
-    className: "portrait",
   },
   {
     src: estate,
     alt: "The newlyweds walking toward a countryside estate",
-    className: "wide",
   },
 ];
 
@@ -280,8 +272,11 @@ function Invitation() {
         <section className="section gallery">
           <p className="eyebrow">A little of our story</p><h2>Us, in quiet moments</h2>
           <div className="photo-grid">
-            {galleryPhotos.map((photo) => <figure className={photo.className} key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt} /></figure>)}
-          </div>
+{galleryPhotos.map((photo) => (
+  <figure key={photo.src}>
+    <img loading="lazy" src={photo.src} alt={photo.alt} />
+  </figure>
+))}          </div>
         </section>
 
         <div className="celebration-card stationery-card">

@@ -435,29 +435,31 @@ footer h2 { font-size: 52px; line-height: .85; }
   padding-inline: 18px;
   overflow: hidden;
 }
+
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-flow: dense;
-  gap: 10px;
+  gap: 7px;
   align-items: start;
 }
+
 .photo-grid figure {
   position: relative;
-  min-width: 0;
   width: 100%;
+  aspect-ratio: 2 / 3;
   margin: 0;
   overflow: hidden;
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: 10px;
   border: 1px solid color-mix(
     in oklab,
     var(--border) 70%,
     var(--parchment)
   );
   background: var(--parchment);
-  box-shadow: 0 8px 20px oklch(0.255 0.022 53 / 15%);
+  box-shadow: 0 6px 16px oklch(0.255 0.022 53 / 12%);
 }
+
 .photo-grid figure img {
   display: block;
   width: 100%;
@@ -466,8 +468,9 @@ footer h2 { font-size: 52px; line-height: .85; }
   object-position: center;
   transition: transform 0.7s ease;
 }
+
 .photo-grid figure:hover img {
-  transform: scale(1.025);
+  transform: scale(1.02);
 }
 .celebration-card { overflow: hidden; margin-top: 18px; }.celebration-botanical { z-index: 0; top: 26px; right: -28px; transform: rotate(-28deg); }.reception { background: transparent; padding-bottom: 60px; }.reception-date { display: flex; align-items: center; justify-content: center; gap: 14px; }.reception-date span { width: 72px; font-size: 10px; line-height: 1.6; letter-spacing: .13em; text-transform: uppercase; }.reception-date strong { font-size: 92px; font-weight: 400; line-height: 1; }.reception-time { margin: 22px 0 42px; font: italic 18px var(--font-serif); }.reception-time strong { font-size: 27px; }.countdown { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 6px; border: 0; padding: 12px 0; background: transparent; }.countdown div { position: relative; min-width: 0; padding: 18px 2px 15px; border: 1px solid color-mix(in oklab, var(--antique-gold) 66%, transparent); background: color-mix(in oklab, var(--paper) 68%, var(--parchment)); box-shadow: inset 0 0 0 3px var(--parchment), inset 0 0 0 4px color-mix(in oklab, var(--gold-light) 34%, transparent), 0 7px 14px oklch(0.255 0.022 53 / 9%); }.countdown div::after { position: absolute; left: 50%; bottom: -5px; width: 9px; height: 9px; border: 1px solid var(--antique-gold); background: var(--parchment); content: ""; transform: translateX(-50%) rotate(45deg); }.countdown div:last-child { border: 1px solid color-mix(in oklab, var(--antique-gold) 66%, transparent); }.countdown strong { display: block; overflow: hidden; color: var(--foreground); font-size: 31px; font-weight: 500; line-height: 1; }.countdown span { display: block; margin-top: 8px; overflow: hidden; font-size: 7px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 .calendar-section { padding-top: 58px; }.calendar { position: relative; max-width: 380px; margin: 0 auto 32px; padding: 20px 14px; border: 1px solid color-mix(in oklab, var(--antique-gold) 70%, transparent); background: color-mix(in oklab, var(--paper) 74%, var(--parchment)); box-shadow: inset 0 0 0 4px var(--parchment), inset 0 0 0 5px color-mix(in oklab, var(--gold-light) 38%, transparent), 0 12px 24px oklch(0.255 0.022 53 / 11%); }.calendar::before,.calendar::after { position: absolute; top: 9px; width: 38px; height: 1px; background: var(--antique-gold); content: ""; }.calendar::before { left: 14px; }.calendar::after { right: 14px; }.weekdays,.dates { display: grid; grid-template-columns: repeat(7,1fr); }.weekdays span { padding: 8px 0; font-size: 8px; color: var(--sage); }.dates span { position: relative; display: grid; aspect-ratio: 1; place-items: center; font: 15px var(--font-serif); }.dates span b { position: relative; z-index: 1; font-weight: 500; }.dates .chosen svg { position: absolute; width: 44px; height: 41px; overflow: visible; fill: none; stroke: var(--antique-gold); stroke-width: 1.7; filter: drop-shadow(0 1px 0 var(--gold-light)); }.dates .chosen::after { position: absolute; width: 34px; height: 34px; border: 1px solid color-mix(in oklab, var(--gold-light) 50%, transparent); border-radius: 50%; content: ""; }.outline-button { min-height: 44px; margin: 5px; border-radius: 999px; padding-inline: 22px; background: color-mix(in oklab, var(--paper) 60%, transparent); font-family: var(--font-sans); font-size: 10px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; box-shadow: 0 4px 12px oklch(0.29 0.02 55 / 8%); }.calendar-section .ink-button { display: flex; margin: 12px auto 0; }
@@ -508,27 +511,3 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
 @media (max-height: 620px) { .opening-card { height: calc(100dvh - 20px); padding-block: 20px; }.opening-card h1 { font-size: 40px; }.opening-card .botanical-rule { margin-block: 10px; }.opening-card .eyebrow { margin-bottom: 10px; }.polaroid-compact { width: 105px !important; } }
 @media (min-width: 640px) { .app-shell { padding-block: 34px; }.invitation { max-width: 570px; border: 1px solid color-mix(in oklab, var(--antique-gold) 42%, var(--border)); }.invitation::before { inset: 9px; }.section { padding-inline: 54px; }.polaroid { width: min(82%, 390px); } }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
-/* Portrait cards */
-.photo-grid figure.portrait {
-  aspect-ratio: 2 / 3;
-}
-
-/* Smaller cards */
-.photo-grid figure.square {
-  aspect-ratio: 4 / 5;
-}
-
-/* Wide editorial cards */
-.photo-grid figure.landscape {
-  grid-column: 1 / -1;
-  aspect-ratio: 3 / 2;
-}
-
-/* Extra-wide card */
-.photo-grid figure.wide {
-  aspect-ratio: 16 / 9;
-}
-.photo-grid figure.landscape img {
-  object-fit: contain;
-  background: var(--parchment);
-}
