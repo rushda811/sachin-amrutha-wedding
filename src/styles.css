@@ -737,6 +737,10 @@ footer { position: relative; overflow: hidden; padding: 70px 25px 90px; border-t
     0 18px 45px oklch(0.2 0.02 55 / 18%),
     inset 0 1px 0 color-mix(in oklab, white 8%, transparent);
 }
+.blessings-note::before {
+  content: "";
+  position: absolute;
+}
 
 .blessings-note h2 {
   max-width: 340px;
