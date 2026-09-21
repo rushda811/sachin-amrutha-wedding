@@ -80,11 +80,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Amrutha & Sachin" },
       { name: "description", content: "Wedding invitation for Amrutha and Sachin." },
       { name: "author", content: "Amrutha & Sachin" },
-      { property: "og:title", content: "Amrutha & Sachin" },
-      { property: "og:description", content: "Wedding invitation for Amrutha and Sachin." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+{ property: "og:title", content: "Amrutha & Sachin" },
+{
+  property: "og:description",
+  content: "Together with their families, Amrutha & Sachin invite you to celebrate their wedding.",
+},
+{ property: "og:type", content: "website" },
+{
+  property: "og:image",
+  content: "view.png",
+},
+{ property: "og:image:width", content: "1200" },
+{ property: "og:image:height", content: "630" },
+{ name: "twitter:card", content: "summary_large_image" },
+{
+  name: "twitter:image",
+  content: "https://amrutha-sachin-wedding.vercel.app/view.png"
+},
     ],
     links: [
       {
