@@ -482,7 +482,9 @@ function Invitation() {
   </p>
 </section>
         <Guestbook />
-<div className="brand-signature">
+
+
+        <footer><img src={flower} alt="" /><p>Your presence would be the greatest gift<br />we could receive!</p><BotanicalRule /><h2>Amrutha <em>&</em> Sachin</h2><span>22 · 10 · 2026</span><div className="brand-signature">
   <span>Crafted by</span>
 
   <a
@@ -494,9 +496,7 @@ function Invitation() {
     <Instagram size={14} strokeWidth={1.5} />
     <strong>AURELLE VOWS</strong>
   </a>
-</div>
-
-        <footer><img src={flower} alt="" /><p>Your presence would be the greatest gift<br />we could receive!</p><BotanicalRule /><h2>Amrutha <em>&</em> Sachin</h2><span>22 · 10 · 2026</span></footer>
+</div></footer>
       </article>
     </main>
   );
