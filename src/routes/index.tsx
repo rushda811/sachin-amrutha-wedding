@@ -22,7 +22,6 @@ import bouquet from "@/assets/gallery-bouquet.jpeg";
 import laughter from "@/assets/gallery-laughter.jpeg";
 import stationery from "@/assets/gallery-stationery.jpeg";
 import estate from "@/assets/gallery-estate.jpeg";
-import paper from "@/assets/paper.webp";
 import frame from "@/assets/frame-avatar.webp";
 import house from "@/assets/house-background.webp";
 import flower from "@/assets/flower.webp";
@@ -479,7 +478,7 @@ function Invitation() {
 <div className={opened ? "opening-wrap is-opened" : "opening-wrap"}>
   <Opening onOpen={() => setOpened(true)} />
 </div>      <MusicPlayer active={opened} />
-      <article className="invitation" style={{ backgroundImage: `url(${paper})`, "--flower-art": `url(${flower})`, "--leaf-art": `url(${leaf})` } as CSSProperties}>
+      <article className="invitation" style={{ "--flower-art": `url(${flower})`, "--leaf-art": `url(${leaf})` } as CSSProperties}>
         <section className="hero section">
           <img className="hero-leaf" src={leaf} alt="" />
           <p className="eyebrow">The wedding of</p><h1>Amrutha <em>&</em> Sachin</h1>
