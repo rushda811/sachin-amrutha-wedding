@@ -305,7 +305,7 @@ function WeddingTimeline() {
   return (
     <section className="section wedding-timeline">
       <div className="timeline-heading">
-        <p className="eyebrow">Four days · One beautiful beginning</p>
+        <p className="eyebrow">Our beautiful beginning</p>
         <h2>Our wedding days</h2>
         <BotanicalRule />
         <p className="timeline-intro">
