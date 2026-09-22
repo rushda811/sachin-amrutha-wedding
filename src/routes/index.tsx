@@ -455,7 +455,7 @@ const [galleryOpen, setGalleryOpen] = useState(false);
       behavior: "instant",
     });
 
-    const scrollSpeed = 18;
+    const scrollSpeed = 40;
     let lastTime = performance.now();
 
     const autoScroll = (currentTime: number) => {
