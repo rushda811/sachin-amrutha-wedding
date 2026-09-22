@@ -693,7 +693,7 @@ By the grace of God and with the blessings of our loved ones, we seek your prese
         <Guestbook />
 
 
-        <footer><img src={flower} alt="" /><p>Your presence would be the greatest gift<br />we could receive!</p><BotanicalRule /><h2>Sachin <em>&</em> Amrutha</h2><span>22 · 10 · 2026</span><div className="brand-signature">
+        <footer><img src={flower} alt="" /><p>Your presence would be the greatest gift<br />we could receive!</p><BotanicalRule /><h2>Sachin <em>&</em> Amrutha</h2><span>25 · 10 · 2026</span><div className="brand-signature">
   <span>Crafted by</span>
 
   <a
