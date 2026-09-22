@@ -115,7 +115,7 @@ const beginOpening = () => {
         <p className="eyebrow">Together with their families</p>
         <h1>Sachin <em>&</em> Amrutha</h1>
         <BotanicalRule />
-        <p className="opening-date">October 22, 2026</p>
+        <p className="opening-date">October 25, 2026</p>
         <p className="script-line">Cordially Invites</p>
 <Button className="open-button" onClick={beginOpening} disabled={celebrating}>
   Open
