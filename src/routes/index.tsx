@@ -540,15 +540,32 @@ const [galleryOpen, setGalleryOpen] = useState(false);
   <h2>Us, in quiet moments</h2>
 
   <div className="photo-collage">
-    <div className="collage-photo collage-photo-1">
-      <img
-        loading="lazy"
-        src={gardenWalk}
-        alt="The couple walking together beside a heritage garden"
-      />
-    </div>
+  <div className="collage-photo collage-photo-1">
+    <img
+      loading="lazy"
+      src={laughter}
+      alt="The couple sharing a quiet moment beneath garden trees"
+    />
+  </div>
 
-    <div className="collage-photo collage-photo-2">
+  <div className="collage-photo collage-photo-2">
+    <img
+      loading="lazy"
+      src={stationery}
+      alt="Wedding stationery"
+    />
+  </div>
+
+  <div className="collage-photo collage-photo-3">
+    <img
+      loading="lazy"
+      src={detail}
+      alt="Handcrafted wedding details with flowers"
+    />
+  </div>
+
+  <div className="collage-bottom">
+    <div className="collage-photo">
       <img
         loading="lazy"
         src={bouquet}
@@ -556,41 +573,24 @@ const [galleryOpen, setGalleryOpen] = useState(false);
       />
     </div>
 
-    <div className="collage-photo collage-photo-3">
+    <button
+      type="button"
+      className="collage-photo collage-more"
+      onClick={() => setGalleryOpen(true)}
+      aria-label="View all wedding photos"
+    >
       <img
         loading="lazy"
-        src={laughter}
-        alt="The couple sharing a quiet moment beneath garden trees"
+        src={gardenWalk}
+        alt="The couple walking together beside a heritage garden"
       />
-    </div>
 
-    <div className="collage-bottom">
-      <div className="collage-photo">
-        <img
-          loading="lazy"
-          src={detail}
-          alt="Handcrafted wedding details with flowers"
-        />
-      </div>
-
-      <button
-        type="button"
-        className="collage-photo collage-more"
-        onClick={() => setGalleryOpen(true)}
-        aria-label="View all wedding photos"
-      >
-        <img
-          loading="lazy"
-          src={walk}
-          alt="The couple walking through a wildflower meadow"
-        />
-
-        <span className="collage-overlay">
-          + 3
-        </span>
-      </button>
-    </div>
+      <span className="collage-overlay">
+        + 3
+      </span>
+    </button>
   </div>
+</div>
 </section>
 {galleryOpen && (
   <div
