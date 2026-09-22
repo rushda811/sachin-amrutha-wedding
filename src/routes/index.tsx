@@ -489,7 +489,7 @@ const [galleryOpen, setGalleryOpen] = useState(false);
     };
   }, [opened]);
   const googleCalendar = useMemo(() => {
-    const query = new URLSearchParams({ action: "TEMPLATE", text: "Sachin & Amrutha’s Wedding Reception", dates: "20261022T105800Z/20261022T135800Z", details: "Join us as we celebrate Sachin and Amrutha.", location: "Kottaramukk, Kerala, India" });
+    const query = new URLSearchParams({ action: "TEMPLATE", text: "Sachin & Amrutha’s Wedding Reception", dates: "20261025T105800Z/20261025T135800Z", details: "Join us as we celebrate Sachin and Amrutha.", location: "Kottaramukk, Kerala, India" });
     return `https://calendar.google.com/calendar/render?${query}`;
   }, []);
   return (
