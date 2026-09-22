@@ -686,7 +686,7 @@ const [galleryOpen, setGalleryOpen] = useState(false);
   <BotanicalRule />
 
   <p className="blessings-text">
-By the grace of God and with the blessings of our loved ones, we seek your presence, prayers, and blessings as we begin this beautiful journey together.
+By the grace of God and with the blessings of our loved ones.
   </p>
 </section>
         <Guestbook />
