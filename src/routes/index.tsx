@@ -34,7 +34,7 @@ head: () => ({
     { title: "Sachin & Amrutha | Wedding Invitation" },
     { name: "description", content: "Join Sachin and Amrutha for their wedding celebrations in October 2026." },
     { property: "og:title", content: "Sachin & Amrutha | Wedding Invitation" },
-    { property: "og:description", content: "A celebration of love — 22 & 24 October 2026." },
+    { property: "og:description", content: "A celebration of love — 24 & 25 October 2026." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
   ],

@@ -77,13 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Amrutha & Amrutha" },
-      { name: "description", content: "Wedding invitation for Amrutha and Amrutha." },
-      { name: "author", content: "Amrutha & Amrutha" },
-{ property: "og:title", content: "Amrutha & Amrutha" },
+      { title: "Sachin & Amrutha" },
+      { name: "description", content: "Wedding invitation for Sachin and Amrutha." },
+      { name: "author", content: "Sachin & Amrutha" },
+{ property: "og:title", content: "Sachin & Amrutha" },
 {
   property: "og:description",
-  content: "Together with their families, Amrutha & Amrutha invite you to celebrate their wedding.",
+  content: "Together with their families, Sachin & Amrutha invite you to celebrate their wedding.",
 },
 { property: "og:type", content: "website" },
 {
@@ -95,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 { name: "twitter:card", content: "summary_large_image" },
 {
   name: "twitter:image",
-  content: "https://amrutha-Amrutha-wedding.vercel.app/view.png"
+  content: "https://Sachin-Amrutha-wedding.vercel.app/view.png"
 },
     ],
     links: [
