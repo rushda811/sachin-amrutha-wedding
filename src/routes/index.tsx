@@ -609,19 +609,28 @@ const [galleryOpen, setGalleryOpen] = useState(false);
           <img className="card-botanical celebration-botanical" src={leaf} alt="" />
           <section className="section reception">
             <p className="eyebrow">Reception info</p><h2>Come celebrate with us</h2>
-            <div className="reception-date"><span>Thursday</span><strong>22</strong><span>October<br />2026</span></div>
+            <div className="reception-date"><span>Thursday</span><strong>25</strong><span>October<br />2026</span></div>
             <p className="reception-time">from <strong>3:00 pm at Our Residence</strong></p><Countdown />
           </section>
 
           <section className="section calendar-section">
             <p className="eyebrow">Save our date</p><h2>October 2026</h2>
-            <div className="calendar"><div className="weekdays">{"SMTWTFS".split("").map((day, i) => <span key={`${day}-${i}`}>{day}</span>)}</div><div className="dates">{calendarDays.map((day, index) => <span className={day === 22 ? "chosen" : ""} key={`${day}-${index}`}>{day === 22 && <svg viewBox="0 0 48 44" aria-hidden="true"><path d="M24 40C17 34 5 25 5 14.5 5 7 14 3 20 8l4 4 4-4c6-5 15-1 15 6.5C43 25 31 34 24 40Z" /></svg>}<b>{day}</b></span>)}</div></div>
+            <div className="calendar"><div className="weekdays">{"SMTWTFS".split("").map((day, i) => <span key={`${day}-${i}`}>{day}</span>)}</div><div className="dates">{calendarDays.map((day, index) => <span className={day === 25 ? "chosen" : ""} key={`${day}-${index}`}>{day === 25 && <svg viewBox="0 0 48 44" aria-hidden="true"><path d="M24 40C17 34 5 25 5 14.5 5 7 14 3 20 8l4 4 4-4c6-5 15-1 15 6.5C43 25 31 34 24 40Z" /></svg>}<b>{day}</b></span>)}</div></div>
             <Button asChild variant="outline" className="outline-button"><a href={googleCalendar} target="_blank" rel="noreferrer"><CalendarPlus />Add to calendar</a></Button>
             
           </section>
         </div>
 
         <section className="section venue">
+          <p className="eyebrow">Wedding reception venue</p><h2>Kottaramukk</h2>
+          <img className="venue-house" loading="lazy" src={house} alt="Watercolour illustration of the wedding venue" />
+          <div className="venue-details">
+  <MapPin aria-hidden="true" />
+  <div>
+    <strong>At my Residence</strong>
+    <span>Iritty, Kerala, India</span>
+  </div>
+</div>
 
 <div className="intimate-location">
   <p className="eyebrow">24 October Intimate Wedding</p>
