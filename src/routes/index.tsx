@@ -297,7 +297,7 @@ function WeddingTimeline() {
       month: "OCTOBER",
       title: "Mullappoo Kalyanam",
       time: "Celebration",
-      detail: "A beautiful tradition before the wedding",
+      detail: "A beautiful tradition before the wedding with Family & Friends",
       side: "right",
     },
     {
@@ -394,7 +394,7 @@ function DressCode() {
 
   return (
     <section className="section dress-code">
-      <p className="eyebrow">22 October · Bride's Reception</p>
+      <p className="eyebrow">24 October · Intimate Wedding</p>
 
       <h2>Dress Code</h2>
 
@@ -591,37 +591,35 @@ const [galleryOpen, setGalleryOpen] = useState(false);
       </button>
     </div>
   </div>
-
-  {galleryOpen && (
-    <div
-      className="gallery-lightbox"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Wedding photo gallery"
-    >
-      <button
-        type="button"
-        className="gallery-close"
-        onClick={() => setGalleryOpen(false)}
-        aria-label="Close gallery"
-      >
-        ×
-      </button>
-
-      <div className="gallery-lightbox-grid">
-        <img src={gardenWalk} alt="The couple walking together beside a heritage garden" />
-        <img src={bouquet} alt="An ivory bridal bouquet and heirloom jewellery" />
-        <img src={laughter} alt="The couple sharing a quiet moment beneath garden trees" />
-        <img src={detail} alt="Handcrafted wedding details with flowers" />
-        <img src={walk} alt="The couple walking through a wildflower meadow" />
-        <img src={stationery} alt="Ivory wedding stationery with dried botanicals" />
-        <img src={portrait} alt="Amrutha and Sachin together" />
-        <img src={estate} alt="The newlyweds walking toward a countryside estate" />
-      </div>
-    </div>
-  )}
 </section>
+{galleryOpen && (
+  <div
+    className="gallery-lightbox"
+    onClick={() => setGalleryOpen(false)}
+  >
+    <button
+      type="button"
+      className="gallery-close"
+      onClick={() => setGalleryOpen(false)}
+      aria-label="Close gallery"
+    >
+      ×
+    </button>
 
+    <div
+      className="gallery-lightbox-grid"
+      onClick={(event) => event.stopPropagation()}
+    >
+      <img src={gardenWalk} alt="Wedding photo" />
+      <img src={bouquet} alt="Wedding photo" />
+      <img src={laughter} alt="Wedding photo" />
+      <img src={detail} alt="Wedding details" />
+      <img src={walk} alt="Wedding photo" />
+      <img src={stationery} alt="Wedding stationery" />
+      <img src={estate} alt="Wedding venue" />
+    </div>
+  </div>
+)}
         <div className="celebration-card stationery-card">
           <img className="card-botanical celebration-botanical" src={leaf} alt="" />
           <section className="section reception">
@@ -660,7 +658,7 @@ const [galleryOpen, setGalleryOpen] = useState(false);
 </Button>
 
 <div className="intimate-location">
-  <p className="eyebrow">24 October · Family & Friends</p>
+  <p className="eyebrow">24 October Intimate Wedding</p>
 
   <h3>Intimate Wedding</h3>
 
