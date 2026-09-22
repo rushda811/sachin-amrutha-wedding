@@ -610,13 +610,14 @@ const [galleryOpen, setGalleryOpen] = useState(false);
   className="gallery-lightbox-grid"
   onClick={(event) => event.stopPropagation()}
 >
-  <img src={laughter} alt="Wedding photo" />
-  <img src={stationery} alt="Wedding stationery" />
-  <img src={detail} alt="Wedding details" />
-  <img src={bouquet} alt="Wedding bouquet" />
-  <img src={gardenWalk} alt="Wedding photo" />
-  <img src={walk} alt="Wedding photo" />
-  <img src={estate} alt="Wedding venue" />
+<img src={laughter} alt="Wedding photo" />
+<img src={stationery} alt="Wedding stationery" />
+<img src={detail} alt="Wedding details" />
+<img src={bouquet} alt="Wedding bouquet" />
+<img src={gardenWalk} alt="Wedding photo" />
+<img src={walk} alt="Wedding photo" />
+<img src={estate} alt="Wedding venue" />
+<img src={portrait} alt="Amrutha and Sachin" />
 </div>
   </div>
 )}
