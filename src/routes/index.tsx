@@ -296,7 +296,7 @@ function WeddingTimeline() {
       date: "25",
       month: "OCTOBER",
       title: "Groom's Reception",
-      time: "Reception",
+      time: "Reception 4:00 pm",
       detail: "A celebration at Our Residence",
       side: "right",
     },
@@ -610,7 +610,7 @@ const [galleryOpen, setGalleryOpen] = useState(false);
           <section className="section reception">
             <p className="eyebrow">Reception info</p><h2>Come celebrate with us</h2>
             <div className="reception-date"><span>Thursday</span><strong>25</strong><span>October<br />2026</span></div>
-            <p className="reception-time">from <strong>3:00 pm at Our Residence</strong></p><Countdown />
+            <p className="reception-time">from <strong>4:00 pm at Our Residence</strong></p><Countdown />
           </section>
 
           <section className="section calendar-section">
