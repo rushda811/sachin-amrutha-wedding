@@ -31,9 +31,9 @@ import music from "@/assets/yt-915f7a0b-a1c_77nDFw1b.mp3";
 export const Route = createFileRoute("/")({
 head: () => ({
   meta: [
-    { title: "Amrutha & Sachin | Wedding Invitation" },
-    { name: "description", content: "Join Amrutha and Sachin for their wedding celebrations in October 2026." },
-    { property: "og:title", content: "Amrutha & Sachin | Wedding Invitation" },
+    { title: "Sachin & Amrutha | Wedding Invitation" },
+    { name: "description", content: "Join Sachin and Amrutha for their wedding celebrations in October 2026." },
+    { property: "og:title", content: "Sachin & Amrutha | Wedding Invitation" },
     { property: "og:description", content: "A celebration of love — 22 & 24 October 2026." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
@@ -65,7 +65,7 @@ function BotanicalRule() {
 function PhotoFrame({ compact = false }: { compact?: boolean }) {
   return (
     <div className={compact ? "polaroid polaroid-compact" : "polaroid"}>
-      <img className="polaroid-photo" src={portrait} alt="Amrutha and Sachin together in a countryside garden" width={1024} height={1408} />
+      <img className="polaroid-photo" src={portrait} alt="Sachin and Amrutha together in a countryside garden" width={1024} height={1408} />
       <img className="polaroid-overlay" src={frame} alt="" />
     </div>
   );
@@ -113,7 +113,7 @@ const beginOpening = () => {
         <img className="opening-leaf opening-leaf-left" src={leaf} alt="" />
         <img className="opening-flower" src={flower} alt="" />
         <p className="eyebrow">Together with their families</p>
-        <h1>Amrutha <em>&</em> Sachin</h1>
+        <h1>Sachin <em>&</em> Amrutha</h1>
         <BotanicalRule />
         <p className="opening-date">October 22, 2026</p>
         <p className="script-line">Cordially Invites</p>
@@ -285,22 +285,6 @@ function MusicPlayer({ active }: { active: boolean }) {
 function WeddingTimeline() {
   const events = [
     {
-      date: "22",
-      month: "OCTOBER",
-      title: "Bride's Reception",
-      time: "3:00 PM",
-      detail: "At Our Residence",
-      side: "left",
-    },
-    {
-      date: "23",
-      month: "OCTOBER",
-      title: "Mullappoo Kalyanam",
-      time: "Celebration",
-      detail: "A beautiful tradition before the wedding with Family & Friends",
-      side: "right",
-    },
-    {
       date: "24",
       month: "OCTOBER",
       title: "Intimate Wedding",
@@ -313,7 +297,7 @@ function WeddingTimeline() {
       month: "OCTOBER",
       title: "Groom's Reception",
       time: "Reception",
-      detail: "A celebration at Groom's Residence",
+      detail: "A celebration at Our Residence",
       side: "right",
     },
   ];
@@ -505,7 +489,7 @@ const [galleryOpen, setGalleryOpen] = useState(false);
     };
   }, [opened]);
   const googleCalendar = useMemo(() => {
-    const query = new URLSearchParams({ action: "TEMPLATE", text: "Amrutha & Sachin’s Wedding Reception", dates: "20261022T105800Z/20261022T135800Z", details: "Join us as we celebrate Amrutha and Sachin.", location: "Kottaramukk, Kerala, India" });
+    const query = new URLSearchParams({ action: "TEMPLATE", text: "Sachin & Amrutha’s Wedding Reception", dates: "20261022T105800Z/20261022T135800Z", details: "Join us as we celebrate Sachin and Amrutha.", location: "Kottaramukk, Kerala, India" });
     return `https://calendar.google.com/calendar/render?${query}`;
   }, []);
   return (
@@ -516,7 +500,7 @@ const [galleryOpen, setGalleryOpen] = useState(false);
       <article className="invitation" style={{ "--flower-art": `url(${flower})`, "--leaf-art": `url(${leaf})` } as CSSProperties}>
         <section className="hero section">
           <img className="hero-leaf" src={leaf} alt="" />
-          <p className="eyebrow">The wedding of</p><h1>Amrutha <em>&</em> Sachin</h1>
+          <p className="eyebrow">The wedding of</p><h1>Sachin <em>&</em> Amrutha</h1>
           <div className="hero-portrait">
             <img className="hero-house" src={house} alt="" />
             <img className="hero-flower" src={flower} alt="" />
@@ -528,9 +512,9 @@ const [galleryOpen, setGalleryOpen] = useState(false);
           <img className="card-botanical card-botanical-left" src={flower} alt="" />
           <img className="card-botanical card-botanical-right" src={leaf} alt="" />
           <p className="eyebrow">Ceremony info</p><h2>With joyful hearts</h2><BotanicalRule />
-          <div className="parents"><p><strong>Mr. & Mrs. Radhakrishnan</strong><small>Radhakrishnan & Chandrika<br />Melekoyiloth, Kottaramukk, Balussery</small></p><span>&</span><p><strong>Mr. & Mrs. Raveendran</strong><small>Raveendran & Vilasini<br />Sini Nivas, Punnad, Iritty</small></p></div>
+          <div className="parents"><p><strong>Mr. & Mrs. Raveendran</strong><small>Raveendran & Vilasini<br />Sini Nivas, Punnad, Iritty</small></p><span>&</span><p><strong>Mr. & Mrs. Radhakrishnan</strong><small>Radhakrishnan & Chandrika<br />Melekoyiloth, Kottaramukk, Balussery</small></p></div>
           <p className="announcement">In the presence of God, we joyfully announce the wedding of our children</p>
-          <div className="couple-names"><span>Amrutha</span><em>&</em><span>Sachin</span></div>
+          <div className="couple-names"><span>Sachin</span><em>&</em><span>Amrutha</span></div>
                </section>
 
         <WeddingTimeline />
@@ -617,7 +601,7 @@ const [galleryOpen, setGalleryOpen] = useState(false);
 <img src={gardenWalk} alt="Wedding photo" />
 <img src={walk} alt="Wedding photo" />
 <img src={estate} alt="Wedding venue" />
-<img src={portrait} alt="Amrutha and Sachin" />
+<img src={portrait} alt="Sachin and Amrutha" />
 </div>
   </div>
 )}
@@ -638,25 +622,6 @@ const [galleryOpen, setGalleryOpen] = useState(false);
         </div>
 
         <section className="section venue">
-          <p className="eyebrow">Wedding reception venue</p><h2>Kottaramukk</h2>
-          <img className="venue-house" loading="lazy" src={house} alt="Watercolour illustration of the wedding venue" />
-          <div className="venue-details">
-  <MapPin aria-hidden="true" />
-  <div>
-    <strong>At my Residence</strong>
-    <span>Kottaramukk, Kerala, India</span>
-  </div>
-</div>
-
-<Button asChild variant="outline" className="outline-button">
-  <a
-    href="https://maps.app.goo.gl/ja1bNUAQe6F4ndjTA"
-    target="_blank"
-    rel="noreferrer"
-  >
-    <MapPin /> Get directions
-  </a>
-</Button>
 
 <div className="intimate-location">
   <p className="eyebrow">24 October Intimate Wedding</p>
@@ -684,7 +649,7 @@ const [galleryOpen, setGalleryOpen] = useState(false);
 <div className="intimate-location groom-location">
   <p className="eyebrow">25 October · Groom's Reception</p>
 
-  <h3>Groom's Residence</h3>
+  <h3>At Our Residence</h3>
 
   <p className="intimate-location-date">
     Sunday · 25 October 2026
@@ -719,7 +684,7 @@ By the grace of God and with the blessings of our loved ones, we seek your prese
         <Guestbook />
 
 
-        <footer><img src={flower} alt="" /><p>Your presence would be the greatest gift<br />we could receive!</p><BotanicalRule /><h2>Amrutha <em>&</em> Sachin</h2><span>22 · 10 · 2026</span><div className="brand-signature">
+        <footer><img src={flower} alt="" /><p>Your presence would be the greatest gift<br />we could receive!</p><BotanicalRule /><h2>Sachin <em>&</em> Amrutha</h2><span>22 · 10 · 2026</span><div className="brand-signature">
   <span>Crafted by</span>
 
   <a
