@@ -622,13 +622,12 @@ const [galleryOpen, setGalleryOpen] = useState(false);
         </div>
 
         <section className="section venue">
-          <p className="eyebrow">Wedding reception venue</p><h2>Kottaramukk</h2>
+          <p className="eyebrow">Wedding reception venue</p><h2>Punnad, Iritty</h2>
           <img className="venue-house" loading="lazy" src={house} alt="Watercolour illustration of the wedding venue" />
           <div className="venue-details">
   <MapPin aria-hidden="true" />
   <div>
     <strong>At my Residence</strong>
-    <span>Iritty, Kerala, India</span>
   </div>
 </div>
 
