@@ -513,7 +513,7 @@ const [galleryOpen, setGalleryOpen] = useState(false);
           <img className="card-botanical card-botanical-right" src={leaf} alt="" />
           <p className="eyebrow">Ceremony info</p><h2>With joyful hearts</h2><BotanicalRule />
           <div className="parents"><p><strong>Mr. & Mrs. Raveendran</strong><small>Raveendran & Vilasini<br />Sini Nivas, Punnad, Iritty</small></p><span>&</span><p><strong>Mr. & Mrs. Radhakrishnan</strong><small>Radhakrishnan & Chandrika<br />Melekoyiloth, Kottaramukk, Balussery</small></p></div>
-          <p className="announcement">In the presence of God, we joyfully announce the wedding of our children</p>
+          <p className="announcement">By the grace of God and with the blessings of our loved ones,</p>
           <div className="couple-names"><span>Sachin</span><em>&</em><span>Amrutha</span></div>
                </section>
 
