@@ -496,7 +496,7 @@ footer h2 { font-size: 52px; line-height: .85; }
 
   display: grid;
   grid-template-columns: 3fr 2fr;
-  grid-template-rows: 1fr 1fr 0.8fr;
+  grid-template-rows: 1.15fr 1.15fr 0.8fr;
 
   gap: 8px;
 
